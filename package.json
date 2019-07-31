@@ -22,18 +22,29 @@
     "@types/storybook__react": "^4.0.2",
     "@types/styled-components": "^4.1.18",
     "@types/styled-system": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.12.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-idiomatic-order": "^7.0.3",
+    "stylelint-config-prettier": "^5.0.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-prettier": "^1.0.6",
+    "stylelint-processor-styled-components": "^1.8.0",
     "typescript": "3.5.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "format": "prettier --write './src/**/*.{ts,tsx}'",
+    "lint:css": "stylelint './src/**/*.tsx'",
+    "lint": "eslint . --ext .ts,.tsx",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -45,6 +56,22 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.tsx": [
+      "stylelint --fix",
+      "git add"
     ]
   }
 }
