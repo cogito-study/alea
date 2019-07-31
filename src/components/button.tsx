@@ -1,10 +1,17 @@
-import React, { HTMLProps } from 'react'
+import { HTMLProps } from 'react'
+import { layout, color, LayoutProps, ColorProps } from 'styled-system'
+import styled from 'styled-components'
 
-export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
-  backgroundColor?: string
+interface Props {
   type?: 'submit' | 'button' | 'reset' | undefined
 }
 
-export function Button({ children, ...rest }: ButtonProps) {
-  return <button {...rest}>{children}</button>
-}
+export type ButtonProps = Props &
+  LayoutProps &
+  ColorProps &
+  HTMLProps<HTMLButtonElement>
+
+export const Button = styled.button<ButtonProps>`
+  ${layout}
+  ${color}
+`
