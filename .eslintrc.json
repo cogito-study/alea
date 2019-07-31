@@ -11,8 +11,7 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "react-hooks",
-    "graphql"
+    "react-hooks"
   ],
   "extends": [
     "plugin:react/recommended",
