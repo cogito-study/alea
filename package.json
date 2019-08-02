@@ -1,0 +1,82 @@
+{
+  "name": "alea",
+  "description": "The building blocks of Cogito.",
+  "version": "0.1.0",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cogito-study/alea"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "styled-components": "^4.3.2",
+    "styled-system": "^5.0.18"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.2.0-beta.20",
+    "@storybook/addon-info": "^5.2.0-beta.20",
+    "@storybook/addon-links": "^5.2.0-beta.20",
+    "@storybook/addons": "^5.2.0-beta.20",
+    "@storybook/react": "^5.2.0-beta.20",
+    "@types/jest": "24.0.16",
+    "@types/node": "12.6.8",
+    "@types/react": "16.8.23",
+    "@types/react-dom": "16.8.5",
+    "@types/storybook__react": "^4.0.2",
+    "@types/styled-components": "^4.1.18",
+    "@types/styled-system": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.12.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
+    "stylelint": "^10.1.0",
+    "stylelint-config-idiomatic-order": "^7.0.3",
+    "stylelint-config-prettier": "^5.0.0",
+    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-prettier": "^1.0.6",
+    "stylelint-processor-styled-components": "^1.8.0",
+    "typescript": "3.5.3"
+  },
+  "scripts": {
+    "format": "prettier --write './src/**/*.{ts,tsx}'",
+    "lint:css": "stylelint './src/**/*.tsx'",
+    "lint": "eslint . --ext .ts,.tsx",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.tsx": [
+      "stylelint --fix",
+      "git add"
+    ]
+  }
+}
