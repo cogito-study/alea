@@ -1,12 +1,26 @@
 {
-  "name": "alea",
+  "name": "@cogito-study/alea",
   "description": "The building blocks of Cogito.",
   "version": "0.1.0",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/cogito-study/alea"
+    "url": "git+https://github.com/cogito-study/alea.git"
   },
+  "bugs": {
+    "url": "https://github.com/cogito-study/alea/issues"
+  },
+  "homepage": "https://github.com/cogito-study/alea#readme",
+  "main": "index.ts",
+  "keywords": [
+    "alea",
+    "cogito",
+    "design-system",
+    "styled-system",
+    "styled-components"
+  ],
+  "author": "Mate Papp",
+  "license": "MIT",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
