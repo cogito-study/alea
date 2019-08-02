@@ -1,3 +1,2 @@
-export const theme = {
-  // TODO: Create theme
-};
+export * from './theme';
+export * from './theme-provider';
