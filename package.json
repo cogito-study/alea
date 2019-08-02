@@ -3,6 +3,10 @@
   "description": "The building blocks of Cogito.",
   "version": "0.1.0",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cogito-study/alea"
+  },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
