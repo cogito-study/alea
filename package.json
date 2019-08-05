@@ -42,7 +42,7 @@
     "@types/storybook__react": "4.0.2",
     "@types/styled-components": "4.1.18",
     "@types/styled-system": "5.0.1",
-    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
     "eslint": "5.16.0",
     "eslint-config-prettier": "6.0.0",
