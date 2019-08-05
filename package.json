@@ -62,7 +62,8 @@
     "lint:css": "stylelint './src/**/*.tsx'",
     "lint": "eslint . --ext .ts,.tsx",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "build": "build-storybook"
   },
   "browserslist": {
     "production": [
