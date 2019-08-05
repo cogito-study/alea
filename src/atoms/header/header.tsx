@@ -16,13 +16,7 @@ const lineHeights = {
   h4: '1.22222222em',
 };
 
-type HeaderType = 'h1' | 'h2' | 'h3' | 'h4';
-
-interface Props {
-  as: HeaderType;
-}
-
-export type HeaderProps = Props & SpaceProps & TypographyProps & ColorProps & HTMLProps<HTMLHeadingElement>;
+export type HeaderProps = SpaceProps & TypographyProps & ColorProps & HTMLProps<HTMLHeadingElement>;
 
 const styledProps = compose(
   color,
@@ -38,6 +32,16 @@ const StyledHeader = styled.div<HeaderProps>`
 `;
 
 // @ts-ignore
-export const Header = (props: HeaderProps) => <StyledHeader as={props.as} {...props} />;
+export const H1 = (props: HeaderProps) => <StyledHeader as={'h1'} {...props} />;
+// @ts-ignore
+export const H2 = (props: HeaderProps) => <StyledHeader as={'h2'} {...props} />;
+// @ts-ignore
+export const H3 = (props: HeaderProps) => <StyledHeader as={'h3'} {...props} />;
+// @ts-ignore
+export const H4 = (props: HeaderProps) => <StyledHeader as={'h4'} {...props} />;
 
-Header.defaultProps = {};
+const defaultProps = {};
+H1.defaultProps = defaultProps;
+H2.defaultProps = defaultProps;
+H3.defaultProps = defaultProps;
+H4.defaultProps = defaultProps;
