@@ -16,7 +16,12 @@ const lineHeights = {
   h4: '1.22222222em',
 };
 
+interface HeaderType {
+  as: 'h1' | 'h2' | 'h3' | 'h4';
+}
+
 export type HeaderProps = SpaceProps & TypographyProps & ColorProps & HTMLProps<HTMLHeadingElement>;
+export type HeaderPropsWithHeaderType = HeaderProps & HeaderType;
 
 const styledProps = compose(
   color,
@@ -24,9 +29,9 @@ const styledProps = compose(
   typography,
 );
 
-const StyledHeader = styled.div<HeaderProps>`
-  font-size: ${({ as }: HeaderProps) => fontSizes[as]};
-  line-height: ${({ as }: HeaderProps) => lineHeights[as]};
+const StyledHeader = styled.div<HeaderPropsWithHeaderType>`
+  font-size: ${({ as }: HeaderPropsWithHeaderType) => fontSizes[as]};
+  line-height: ${({ as }: HeaderPropsWithHeaderType) => lineHeights[as]};
 
   ${styledProps}
 `;
