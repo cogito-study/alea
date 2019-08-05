@@ -31,7 +31,7 @@ const borders: Record<CSSStateSelector, ButtonVariants> = {
   default: {
     primary: 'none',
     secondary: `2px solid ${colors.secondary}`,
-    tertiary: 'none',
+    tertiary: '2px solid transparent',
   },
   hover: {
     secondary: `2px solid ${colors.secondaryDark}`,
