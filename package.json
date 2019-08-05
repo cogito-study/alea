@@ -1,7 +1,7 @@
 {
   "name": "@cogito-study/alea",
   "description": "The building blocks of Cogito.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "repository": {
     "type": "git",
@@ -11,7 +11,8 @@
     "url": "https://github.com/cogito-study/alea/issues"
   },
   "homepage": "https://github.com/cogito-study/alea#readme",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index",
   "keywords": [
     "alea",
     "cogito",
@@ -58,6 +59,8 @@
     "typescript": "3.5.3"
   },
   "scripts": {
+    "build-lib": "tsc",
+    "prepare": "npm run build-lib",
     "format": "prettier --write './src/**/*.{ts,tsx}'",
     "lint:css": "stylelint './src/**/*.tsx'",
     "lint": "eslint . --ext .ts,.tsx",
