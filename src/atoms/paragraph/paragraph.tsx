@@ -3,15 +3,15 @@ import React, { HTMLProps } from 'react';
 import { color, ColorProps, compose, space, SpaceProps, typography, TypographyProps } from 'styled-system';
 
 const fontSizes = {
-  small: '10px',
-  medium: '16px',
-  large: '18px',
+  small: 0,
+  medium: 1,
+  large: 2,
 };
 
 const lineHeights = {
-  small: '120%',
-  medium: '160%',
-  large: '160%',
+  small: 1,
+  medium: 2,
+  large: 2,
 };
 
 interface ParagraphType {
@@ -41,5 +41,8 @@ const StyledParagraph = styled.p<ParagraphProps>`
 export const Paragraph = (props: ParagraphProps) => <StyledParagraph {...props} />;
 
 Paragraph.defaultProps = {
+  fontFamily: 'Nunito Sans',
+  fontStyle: 'normal',
+  fontWeight: 'normal',
   paragraphSize: 'medium',
 };
