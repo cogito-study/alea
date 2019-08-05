@@ -37,13 +37,13 @@ const StyledHeader = styled.div<HeaderPropsWithHeaderType>`
 `;
 
 // @ts-ignore
-export const H1 = (props: HeaderProps) => <StyledHeader as={'h1'} {...props} />;
+export const H1 = (props: HeaderProps) => <StyledHeader as="h1" {...props} />;
 // @ts-ignore
-export const H2 = (props: HeaderProps) => <StyledHeader as={'h2'} {...props} />;
+export const H2 = (props: HeaderProps) => <StyledHeader as="h2" {...props} />;
 // @ts-ignore
-export const H3 = (props: HeaderProps) => <StyledHeader as={'h3'} {...props} />;
+export const H3 = (props: HeaderProps) => <StyledHeader as="h3" {...props} />;
 // @ts-ignore
-export const H4 = (props: HeaderProps) => <StyledHeader as={'h4'} {...props} />;
+export const H4 = (props: HeaderProps) => <StyledHeader as="h4" {...props} />;
 
 const defaultProps = {};
 H1.defaultProps = defaultProps;
