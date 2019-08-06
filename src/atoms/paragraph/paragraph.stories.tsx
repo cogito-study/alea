@@ -11,7 +11,7 @@ export const medium = () => <Paragraph>medium</Paragraph>;
 
 export const large = () => <Paragraph paragraphSize="large">large</Paragraph>;
 
-export const textHungarian = () => (
+export const hungarian = () => (
   <Paragraph>
     Lórum ipse: a síra hat a csalmas merebetés nusta, kalmat, tisztés. Tölcse szerint ennek nagyon sok faggyúja lehet.
     Az egyik talán az, hogy ma már nincs meg a kedetségnek az a lacsillája, ami régen volt. Régebben az apérok (persze
@@ -23,7 +23,7 @@ export const textHungarian = () => (
   </Paragraph>
 );
 
-export const textEnglish = () => (
+export const latin = () => (
   <Paragraph>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

@@ -40,8 +40,6 @@ const StyledParagraph = styled.p<ParagraphProps>`
 export const Paragraph = (props: ParagraphProps) => <StyledParagraph {...props} />;
 
 Paragraph.defaultProps = {
-  fontFamily: 'Nunito Sans',
-  fontStyle: 'normal',
-  fontWeight: 'normal',
+  fontFamily: 'paragraph',
   paragraphSize: 'medium',
 };
