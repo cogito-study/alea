@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { configure, addDecorator } from '@storybook/react';
 
-import { ThemeProvider } from '../src/theme';
+import { ThemeProvider, GlobalStyle } from '../src/theme';
 import { Box } from '../src/atoms';
 
 addDecorator((story) => (
   <ThemeProvider>
-    <Box p={3}>{story()}</Box>
+    <Fragment>
+      <GlobalStyle />
+      <Box p={3}>{story()}</Box>
+    </Fragment>
   </ThemeProvider>
 ));
 
