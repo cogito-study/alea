@@ -24,8 +24,7 @@ export const H3 = (props: HeaderProps) => <StyledHeader as="h3" {...props} />;
 export const H4 = (props: HeaderProps) => <StyledHeader as="h4" {...props} />;
 
 const defaultProps = {
-  fontFamily: 'Raleway, ',
-  fontStyle: 'normal',
+  fontFamily: 'header',
   fontWeight: 'bold',
 };
 H1.defaultProps = { ...defaultProps, fontSize: [5, 7], lineHeight: 0 };

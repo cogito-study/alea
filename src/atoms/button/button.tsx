@@ -12,40 +12,42 @@ import {
   TypographyProps,
 } from 'styled-system';
 
-import { colors } from '../../tokens';
+import { colors as themeColors } from '../../tokens';
 import { CSSStateSelector } from '../../utils/types';
 
+const { colors } = themeColors;
+
 const backgroundColors: ButtonVariants = {
-  primary: colors.secondary,
+  primary: colors.accent,
   secondary: colors.white,
   tertiary: colors.white,
 };
 
 const textColors: ButtonVariants = {
   primary: colors.white,
-  secondary: colors.secondary,
-  tertiary: colors.secondary,
+  secondary: colors.accent,
+  tertiary: colors.accent,
 };
 
 const borders: Record<CSSStateSelector, ButtonVariants> = {
   default: {
     primary: 'none',
-    secondary: `2px solid ${colors.secondary}`,
+    secondary: `2px solid ${colors.accent}`,
     tertiary: '2px solid transparent',
   },
   hover: {
-    secondary: `2px solid ${colors.secondaryDark}`,
-    tertiary: `2px solid ${colors.secondaryLight}`,
+    secondary: `2px solid ${colors.accentDark}`,
+    tertiary: `2px solid ${colors.accentLight}`,
   },
   active: {
-    primary: `2px solid ${colors.secondary}`,
-    secondary: `3px solid ${colors.secondaryDark}`,
-    tertiary: `2px solid ${colors.secondaryLight}`,
+    primary: `2px solid ${colors.accent}`,
+    secondary: `3px solid ${colors.accentDark}`,
+    tertiary: `2px solid ${colors.accentLight}`,
   },
   focus: {
-    primary: `2px solid ${colors.secondaryDark}`,
-    secondary: `3px solid ${colors.secondary}`,
-    tertiary: `2px solid ${colors.secondaryLight}`,
+    primary: `2px solid ${colors.accentDark}`,
+    secondary: `3px solid ${colors.accent}`,
+    tertiary: `2px solid ${colors.accentLight}`,
   },
 };
 
@@ -75,10 +77,12 @@ const StyledButton = styled.button<ButtonProps>`
   border: ${({ variant }: ButtonProps) => borders['default'][variant]};
   background-color: ${({ variant }: ButtonProps) => backgroundColors[variant]};
   color: ${({ variant }: ButtonProps) => textColors[variant]};
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 
   &:hover {
     border: ${({ variant }: ButtonProps) => borders['hover'][variant]};
-    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.secondaryDark};
+    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.accentDark};
   }
 
   &:active {
@@ -89,8 +93,6 @@ const StyledButton = styled.button<ButtonProps>`
     border: ${({ variant }: ButtonProps) => borders['focus'][variant]};
   }
 
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
   ${styledProps}
 `;
 
@@ -99,9 +101,11 @@ const StyledButton = styled.button<ButtonProps>`
 export const Button = (props: ButtonProps) => <StyledButton {...props} />;
 
 Button.defaultProps = {
+  fontFamily: 'header',
+  fontSize: 1,
   variant: 'primary',
   isEnabled: true,
-  minWidth: '130px',
+  minWidth: '120px',
   height: '40px',
   px: 3,
   py: 2,
