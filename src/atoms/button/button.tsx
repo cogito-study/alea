@@ -18,36 +18,36 @@ import { CSSStateSelector } from '../../utils/types';
 const { colors } = themeColors;
 
 const backgroundColors: ButtonVariants = {
-  primary: colors.accent,
-  secondary: colors.white,
-  tertiary: colors.white,
+  primary: colors.accent.normal,
+  secondary: colors.transparent,
+  tertiary: colors.transparent,
 };
 
 const textColors: ButtonVariants = {
   primary: colors.white,
-  secondary: colors.accent,
-  tertiary: colors.accent,
+  secondary: colors.accent.normal,
+  tertiary: colors.accent.normal,
 };
 
 const borders: Record<CSSStateSelector, ButtonVariants> = {
   default: {
     primary: 'none',
-    secondary: `2px solid ${colors.accent}`,
+    secondary: `2px solid ${colors.accent.normal}`,
     tertiary: '2px solid transparent',
   },
   hover: {
-    secondary: `2px solid ${colors.accentDark}`,
-    tertiary: `2px solid ${colors.accentLight}`,
+    secondary: `2px solid ${colors.accent.dark}`,
+    tertiary: `2px solid ${colors.accent.light}`,
   },
   active: {
-    primary: `2px solid ${colors.accent}`,
-    secondary: `3px solid ${colors.accentDark}`,
-    tertiary: `2px solid ${colors.accentLight}`,
+    primary: `2px solid ${colors.accent.normal}`,
+    secondary: `3px solid ${colors.accent.dark}`,
+    tertiary: `2px solid ${colors.accent.light}`,
   },
   focus: {
-    primary: `2px solid ${colors.accentDark}`,
-    secondary: `3px solid ${colors.accent}`,
-    tertiary: `2px solid ${colors.accentLight}`,
+    primary: `2px solid ${colors.accent.dark}`,
+    secondary: `3px solid ${colors.accent.normal}`,
+    tertiary: `2px solid ${colors.accent.light}`,
   },
 };
 
@@ -73,6 +73,7 @@ const styledProps = compose(
   typography,
 );
 
+// TODO: disabled state
 const StyledButton = styled.button<ButtonProps>`
   border: ${({ variant }: ButtonProps) => borders['default'][variant]};
   background-color: ${({ variant }: ButtonProps) => backgroundColors[variant]};
@@ -82,7 +83,7 @@ const StyledButton = styled.button<ButtonProps>`
 
   &:hover {
     border: ${({ variant }: ButtonProps) => borders['hover'][variant]};
-    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.accentDark};
+    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.accent.dark};
   }
 
   &:active {
