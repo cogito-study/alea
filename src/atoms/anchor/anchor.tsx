@@ -14,26 +14,26 @@ const styledProps = compose(
 );
 
 const StyledAnchor = styled.a<AnchorProps>`
-  color: ${colors.disabled};
+  color: ${colors.grey.light['2']};
   text-decoration: none;
   cursor: not-allowed;
   :link,
   :visited {
-    color: ${colors.accent};
+    color: ${colors.accent.normal};
     text-decoration: none;
     cursor: pointer;
   }
   :hover {
-    color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accentDark)};
+    color: ${({ href }: AnchorProps) => (!href ? colors.grey.light['2'] : colors.accent.dark)};
     text-decoration: none;
   }
   :focus {
-    color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accent)};
+    color: ${({ href }: AnchorProps) => (!href ? colors.grey.light['2'] : colors.accent.normal)};
     text-decoration: underline;
     outline: none;
   }
   :active {
-    color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accent)};
+    color: ${({ href }: AnchorProps) => (!href ? colors.grey.light['2'] : colors.accent.normal)};
     text-decoration: none;
   }
   ${styledProps}
