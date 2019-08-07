@@ -27,6 +27,6 @@ export const colors = {
     },
     // TODO: error, warning, positive, info
     white: '#fff',
-    transparent: '#ffffff00',
+    transparent: 'transparent',
   },
 };
