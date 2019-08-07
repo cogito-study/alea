@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text } from '../atoms';
+import { H1 } from '../atoms';
 import { token } from '../utils/structure';
 
 export default { title: token('Space') };
 
-export const small = () => <Text>TODO: Small Spacing</Text>;
+export const small = () => <H1>TODO: Small Spacing</H1>;
