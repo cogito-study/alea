@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
 
 import { Button } from './button';
@@ -18,4 +18,19 @@ export const tertiary = () => (
   <Button variant="tertiary" onClick={action('clicked')}>
     tertiary
   </Button>
+);
+
+export const disabled = () => (
+  <Fragment>
+    {/** TODO: Box it! */}
+    <Button onClick={action('clicked')} disabled>
+      primary
+    </Button>
+    <Button variant="secondary" onClick={action('clicked')} disabled>
+      secondary
+    </Button>
+    <Button variant="tertiary" onClick={action('clicked')} disabled>
+      tertiary
+    </Button>
+  </Fragment>
 );

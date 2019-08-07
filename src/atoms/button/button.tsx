@@ -31,9 +31,9 @@ const textColors: ButtonVariants = {
 
 const borders: Record<CSSStateSelector, ButtonVariants> = {
   default: {
-    primary: 'none',
+    primary: `2px solid ${colors.transparent}`,
     secondary: `2px solid ${colors.accent.normal}`,
-    tertiary: '2px solid transparent',
+    tertiary: `2px solid ${colors.transparent}`,
   },
   hover: {
     secondary: `2px solid ${colors.accent.dark}`,
@@ -51,12 +51,30 @@ const borders: Record<CSSStateSelector, ButtonVariants> = {
   },
 };
 
+const disabledProps = {
+  backgroundColors: {
+    primary: colors.grey.light[2],
+    secondary: colors.white,
+    tertiary: colors.white,
+  },
+  textColors: {
+    primary: colors.white,
+    secondary: colors.grey.light[2],
+    tertiary: colors.grey.light[2],
+  },
+  borders: {
+    primary: `2px solid ${colors.transparent}`,
+    secondary: `3px solid ${colors.grey.light[2]}`,
+    tertiary: `2px solid ${colors.transparent}`,
+  },
+};
+
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 type ButtonVariants = Partial<Record<ButtonVariant, string>>;
 
 interface Props {
   variant: ButtonVariant;
-  isEnabled: boolean;
+  disabled: boolean;
 }
 
 export type ButtonProps = Props &
@@ -73,25 +91,31 @@ const styledProps = compose(
   typography,
 );
 
-// TODO: disabled state
 const StyledButton = styled.button<ButtonProps>`
-  border: ${({ variant }: ButtonProps) => borders['default'][variant]};
-  background-color: ${({ variant }: ButtonProps) => backgroundColors[variant]};
-  color: ${({ variant }: ButtonProps) => textColors[variant]};
+  border: ${({ variant, disabled }: ButtonProps) =>
+    disabled ? disabledProps.borders[variant] : borders['default'][variant]};
+  background-color: ${({ variant, disabled }: ButtonProps) =>
+    disabled ? disabledProps.backgroundColors[variant] : backgroundColors[variant]};
+  color: ${({ variant, disabled }: ButtonProps) =>
+    disabled ? disabledProps.textColors[variant] : textColors[variant]};
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 
   &:hover {
-    border: ${({ variant }: ButtonProps) => borders['hover'][variant]};
-    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.accent.dark};
-  }
-
-  &:active {
-    border: ${({ variant }: ButtonProps) => borders['active'][variant]};
+    border: ${({ variant, disabled }: ButtonProps) =>
+      disabled ? disabledProps.borders[variant] : borders['hover'][variant]};
+    background-color: ${({ variant, disabled }: ButtonProps) =>
+      disabled ? disabledProps.backgroundColors[variant] : variant === 'primary' && colors.accent.dark};
+    cursor: ${({ disabled }: ButtonProps) => (disabled ? 'not-allowed' : 'pointer')};
   }
 
   &:focus {
     border: ${({ variant }: ButtonProps) => borders['focus'][variant]};
+    outline: none;
+  }
+
+  &:active {
+    border: ${({ variant }: ButtonProps) => borders['active'][variant]};
   }
 
   ${styledProps}
@@ -102,10 +126,10 @@ const StyledButton = styled.button<ButtonProps>`
 export const Button = (props: ButtonProps) => <StyledButton {...props} />;
 
 Button.defaultProps = {
+  variant: 'primary',
+  disabled: false,
   fontFamily: 'header',
   fontSize: 1,
-  variant: 'primary',
-  isEnabled: true,
   minWidth: '120px',
   height: '40px',
   px: 3,
