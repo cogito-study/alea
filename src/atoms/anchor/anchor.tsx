@@ -27,14 +27,14 @@ const StyledAnchor = styled.a<AnchorProps>`
     color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accentDark)};
     text-decoration: none;
   }
-  :active {
-    color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accent)};
-    text-decoration: none;
-  }
-  :focus :not(:active) {
+  :focus {
     color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accent)};
     text-decoration: underline;
     outline: none;
+  }
+  :active {
+    color: ${({ href }: AnchorProps) => (!href ? colors.disabled : colors.accent)};
+    text-decoration: none;
   }
   ${styledProps}
 `;
