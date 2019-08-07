@@ -39,7 +39,7 @@ const StyledAnchor = styled.a<AnchorProps>`
   ${styledProps}
 `;
 
-// ts-ignore
+// @ts-ignore
 export const Anchor = (props: AnchorProps) => <StyledAnchor {...props} />;
 
 Anchor.defaultProps = {
