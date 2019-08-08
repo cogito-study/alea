@@ -25,7 +25,26 @@ export const colors = {
         4: '#1E1E1E',
       },
     },
-    // TODO: error, warning, positive, info
+    error: {
+      light: '#F9DBD8',
+      normal: '#FF6A6E',
+      dark: '#BA0020',
+    },
+    warning: {
+      light: '#FDF8E1',
+      normal: '#FFF18B',
+      dark: '#EADA24',
+    },
+    positive: {
+      light: '#E4F4E9',
+      normal: '#ADF29C',
+      dark: '#5A9F76',
+    },
+    information: {
+      light: '#B1C9E8',
+      normal: '#456DB0',
+      dark: '#002E5D',
+    },
     white: '#fff',
     transparent: 'transparent',
   },
