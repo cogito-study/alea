@@ -1,5 +1,5 @@
 import React, { HTMLProps } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   color,
   ColorProps,
@@ -92,21 +92,16 @@ const styledProps = compose(
 );
 
 const StyledButton = styled.button<ButtonProps>`
-  border: ${({ variant, disabled }: ButtonProps) =>
-    disabled ? disabledProps.borders[variant] : borders['default'][variant]};
-  background-color: ${({ variant, disabled }: ButtonProps) =>
-    disabled ? disabledProps.backgroundColors[variant] : backgroundColors[variant]};
-  color: ${({ variant, disabled }: ButtonProps) =>
-    disabled ? disabledProps.textColors[variant] : textColors[variant]};
+  border: ${({ variant }: ButtonProps) => borders['default'][variant]};
+  background-color: ${({ variant }: ButtonProps) => backgroundColors[variant]};
+  color: ${({ variant }: ButtonProps) => textColors[variant]};
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 
   &:hover {
-    border: ${({ variant, disabled }: ButtonProps) =>
-      disabled ? disabledProps.borders[variant] : borders['hover'][variant]};
-    background-color: ${({ variant, disabled }: ButtonProps) =>
-      disabled ? disabledProps.backgroundColors[variant] : variant === 'primary' && colors.accent.dark};
-    cursor: ${({ disabled }: ButtonProps) => (disabled ? 'not-allowed' : 'pointer')};
+    border: ${({ variant }: ButtonProps) => borders['hover'][variant]};
+    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.accent.dark};
+    cursor: pointer;
   }
 
   &:focus {
@@ -117,6 +112,20 @@ const StyledButton = styled.button<ButtonProps>`
   &:active {
     border: ${({ variant }: ButtonProps) => borders['active'][variant]};
   }
+
+  ${({ disabled, variant }: ButtonProps) =>
+    disabled &&
+    css`
+      border: ${() => disabledProps.borders[variant]};
+      background-color: ${() => disabledProps.backgroundColors[variant]};
+      color: ${() => disabledProps.textColors[variant]};
+
+      &:hover {
+        border: ${() => disabledProps.borders[variant]};
+        background-color: ${() => disabledProps.backgroundColors[variant]};
+        cursor: not-allowed;
+      }
+    `}
 
   ${styledProps}
 `;
