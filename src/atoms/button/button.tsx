@@ -1,5 +1,5 @@
 import React, { HTMLProps } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, ThemeProps } from 'styled-components';
 import {
   color,
   ColorProps,
@@ -12,69 +12,121 @@ import {
   TypographyProps,
 } from 'styled-system';
 
-import { colors as themeColors } from '../../tokens';
-import { CSSStateSelector } from '../../utils/types';
+import { Theme, theme } from '../../theme';
 
-const { colors } = themeColors;
+const defaultStyle = ({ theme }: ButtonProps) => css`
+  border-width: 2px;
+  border-style: solid;
+  border-color: ${theme.colors.transparent};
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 
-const backgroundColors: ButtonVariants = {
-  primary: colors.accent.normal,
-  secondary: colors.transparent,
-  tertiary: colors.transparent,
-};
+  &:focus {
+    outline: none;
+  }
 
-const textColors: ButtonVariants = {
-  primary: colors.white,
-  secondary: colors.accent.normal,
-  tertiary: colors.accent.normal,
-};
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;
 
-const borders: Record<CSSStateSelector, ButtonVariants> = {
-  default: {
-    primary: `2px solid ${colors.transparent}`,
-    secondary: `2px solid ${colors.accent.normal}`,
-    tertiary: `2px solid ${colors.transparent}`,
+const primaryStyle = ({
+  theme: {
+    colors: { accent, grey, transparent, white },
   },
-  hover: {
-    secondary: `2px solid ${colors.accent.dark}`,
-    tertiary: `2px solid ${colors.accent.light}`,
-  },
-  active: {
-    primary: `2px solid ${colors.accent.normal}`,
-    secondary: `3px solid ${colors.accent.dark}`,
-    tertiary: `2px solid ${colors.accent.light}`,
-  },
-  focus: {
-    primary: `2px solid ${colors.accent.dark}`,
-    secondary: `3px solid ${colors.accent.normal}`,
-    tertiary: `2px solid ${colors.accent.light}`,
-  },
-};
+}: ButtonProps) => css`
+  background-color: ${accent.normal};
+  color: ${white};
 
-const disabledProps = {
-  backgroundColors: {
-    primary: colors.grey.light[2],
-    secondary: colors.white,
-    tertiary: colors.white,
+  &:focus {
+    border-color: ${accent.dark};
+  }
+
+  &:active {
+    border-color: ${accent.normal};
+  }
+
+  &:disabled {
+    color: ${white};
+    border-color: ${transparent};
+    background-color: ${grey.light[2]};
+  }
+
+  &:hover:enabled {
+    background-color: ${accent.dark};
+  }
+`;
+
+const secondaryStyle = ({
+  theme: {
+    colors: { accent, grey, transparent, white },
   },
-  textColors: {
-    primary: colors.white,
-    secondary: colors.grey.light[2],
-    tertiary: colors.grey.light[2],
+}: ButtonProps) => css`
+  background-color: ${transparent};
+  color: ${accent.normal};
+  border-color: ${accent.normal};
+
+  &:focus {
+    border-color: ${accent.normal};
+    border-width: 3px;
+  }
+
+  &:active {
+    border-color: ${accent.dark};
+    color: ${accent.dark};
+  }
+
+  &:disabled {
+    color: ${grey.light[2]};
+    border-color: ${grey.light[2]};
+    background-color: ${white};
+  }
+
+  &:hover:enabled {
+    border-color: ${accent.dark};
+  }
+`;
+
+const tertiaryStyle = ({
+  theme: {
+    colors: { accent, grey, transparent, white },
   },
-  borders: {
-    primary: `2px solid ${colors.transparent}`,
-    secondary: `3px solid ${colors.grey.light[2]}`,
-    tertiary: `2px solid ${colors.transparent}`,
-  },
+}: ButtonProps) => css`
+  background-color: ${transparent};
+  color: ${accent.normal};
+
+  &:focus {
+    border-color: ${accent.light};
+  }
+
+  &:active {
+    border-color: ${accent.light};
+    color: ${accent.dark};
+  }
+
+  &:disabled {
+    color: ${grey.light[2]};
+    border-color: ${transparent};
+    background-color: ${white};
+  }
+
+  &:hover:enabled {
+    border-color: ${accent.light};
+  }
+`;
+
+type Style = (props: ButtonProps) => any;
+
+const variantStyles: Record<ButtonVariant, Style> = {
+  primary: primaryStyle,
+  secondary: secondaryStyle,
+  tertiary: tertiaryStyle,
 };
 
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
-type ButtonVariants = Partial<Record<ButtonVariant, string>>;
 
 interface Props {
   variant: ButtonVariant;
-  disabled: boolean;
 }
 
 export type ButtonProps = Props &
@@ -82,6 +134,7 @@ export type ButtonProps = Props &
   ColorProps &
   SpaceProps &
   TypographyProps &
+  ThemeProps<Theme> &
   HTMLProps<HTMLButtonElement>;
 
 const styledProps = compose(
@@ -92,41 +145,9 @@ const styledProps = compose(
 );
 
 const StyledButton = styled.button<ButtonProps>`
-  border: ${({ variant }: ButtonProps) => borders['default'][variant]};
-  background-color: ${({ variant }: ButtonProps) => backgroundColors[variant]};
-  color: ${({ variant }: ButtonProps) => textColors[variant]};
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-
-  &:hover {
-    border: ${({ variant }: ButtonProps) => borders['hover'][variant]};
-    background-color: ${({ variant }: ButtonProps) => variant === 'primary' && colors.accent.dark};
-    cursor: pointer;
-  }
-
-  &:focus {
-    border: ${({ variant }: ButtonProps) => borders['focus'][variant]};
-    outline: none;
-  }
-
-  &:active {
-    border: ${({ variant }: ButtonProps) => borders['active'][variant]};
-  }
-
-  ${({ disabled, variant }: ButtonProps) =>
-    disabled &&
-    css`
-      border: ${() => disabledProps.borders[variant]};
-      background-color: ${() => disabledProps.backgroundColors[variant]};
-      color: ${() => disabledProps.textColors[variant]};
-
-      &:hover {
-        border: ${() => disabledProps.borders[variant]};
-        background-color: ${() => disabledProps.backgroundColors[variant]};
-        cursor: not-allowed;
-      }
-    `}
-
+  ${defaultStyle}
+  ${(props: ButtonProps) => variantStyles[props.variant](props)}
+  
   ${styledProps}
 `;
 
@@ -135,6 +156,7 @@ const StyledButton = styled.button<ButtonProps>`
 export const Button = (props: ButtonProps) => <StyledButton {...props} />;
 
 Button.defaultProps = {
+  theme: theme,
   variant: 'primary',
   disabled: false,
   fontFamily: 'header',
