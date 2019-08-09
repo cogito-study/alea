@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  compose,
   FlexBasisProps,
   flexbox,
   FlexboxProps,
@@ -27,11 +26,9 @@ export const flexItemProps = system({
   order: true,
 });
 
-const styledFlexProps = compose(flexbox);
-
 const StyledFlex = styled(Box)<FlexContainerProps>`
   display: flex;
-  ${styledFlexProps}
+  ${flexbox}
 `;
 
 // @ts-ignore
