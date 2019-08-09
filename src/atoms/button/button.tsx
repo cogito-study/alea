@@ -13,6 +13,7 @@ import {
 } from 'styled-system';
 
 import { Theme, theme } from '../../theme';
+import { StyleFunction } from '../../utils/types';
 
 const defaultStyle = ({ theme }: ButtonProps) => css`
   border-width: 2px;
@@ -115,9 +116,7 @@ const tertiaryStyle = ({
   }
 `;
 
-type Style = (props: ButtonProps) => any;
-
-const variantStyles: Record<ButtonVariant, Style> = {
+const variantStyles: Record<ButtonVariant, StyleFunction<ButtonProps>> = {
   primary: primaryStyle,
   secondary: secondaryStyle,
   tertiary: tertiaryStyle,
@@ -147,7 +146,7 @@ const styledProps = compose(
 const StyledButton = styled.button<ButtonProps>`
   ${defaultStyle}
   ${(props: ButtonProps) => variantStyles[props.variant](props)}
-  
+
   ${styledProps}
 `;
 
@@ -156,7 +155,7 @@ const StyledButton = styled.button<ButtonProps>`
 export const Button = (props: ButtonProps) => <StyledButton {...props} />;
 
 Button.defaultProps = {
-  theme: theme,
+  theme,
   variant: 'primary',
   disabled: false,
   fontFamily: 'header',

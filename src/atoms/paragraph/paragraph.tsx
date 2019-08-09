@@ -3,6 +3,7 @@ import React, { HTMLProps } from 'react';
 import { color, ColorProps, compose, space, SpaceProps, typography, TypographyProps } from 'styled-system';
 
 import { Theme, theme } from '../../theme';
+import { StyleFunction } from '../../utils/types';
 
 type ParagraphSize = 'large' | 'medium' | 'small';
 
@@ -38,7 +39,7 @@ const largeStyle = ({ theme: { fontSizes, lineHeights } }: ParagraphProps) => cs
   line-height: ${lineHeights[2]};
 `;
 
-const styles: Record<ParagraphSize, any> = {
+const styles: Record<ParagraphSize, StyleFunction<ParagraphProps>> = {
   small: smallStyle,
   medium: mediumStyle,
   large: largeStyle,
