@@ -8,14 +8,14 @@ import {
   color,
   ColorProps,
   compose,
-  FlexGrowProps,
-  FlexProps,
   layout,
   LayoutProps,
   space,
   SpaceProps,
   typography,
   TypographyProps,
+  FlexProps,
+  FlexGrowProps,
   FlexShrinkProps,
   FlexBasisProps,
   OrderProps,
@@ -24,8 +24,15 @@ import {
 } from 'styled-system';
 
 export type FlexItemProps = FlexProps & FlexGrowProps & FlexShrinkProps & FlexBasisProps & OrderProps & AlignSelfProps;
+export type BoxProps = FlexItemProps &
+  LayoutProps &
+  ColorProps &
+  SpaceProps &
+  TypographyProps &
+  BorderProps &
+  BackgroundProps;
 
-export const flexItemProps = system({
+const flexitem = system({
   flex: true,
   flexGrow: true,
   flexShrink: true,
@@ -35,18 +42,9 @@ export const flexItemProps = system({
   order: true,
 });
 
-export type BoxProps = FlexItemProps &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  TypographyProps &
-  BorderProps &
-  BackgroundProps &
-  HTMLProps<HTMLDivElement>;
-
 const styledBoxProps = compose(
   color,
-  flexItemProps,
+  flexitem,
   layout,
   space,
   typography,
@@ -58,5 +56,4 @@ const StyledBox = styled.div<BoxProps>`
   ${styledBoxProps}
 `;
 
-// @ts-ignore
 export const Box = (props: BoxProps) => <StyledBox {...props} />;
