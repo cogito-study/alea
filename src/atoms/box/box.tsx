@@ -8,14 +8,32 @@ import {
   color,
   ColorProps,
   compose,
+  FlexGrowProps,
+  FlexProps,
   layout,
   LayoutProps,
   space,
   SpaceProps,
   typography,
   TypographyProps,
+  FlexShrinkProps,
+  FlexBasisProps,
+  OrderProps,
+  AlignSelfProps,
+  system,
 } from 'styled-system';
-import { FlexItemProps, flexItemProps } from '../';
+
+export type FlexItemProps = FlexProps & FlexGrowProps & FlexShrinkProps & FlexBasisProps & OrderProps & AlignSelfProps;
+
+export const flexItemProps = system({
+  flex: true,
+  flexGrow: true,
+  flexShrink: true,
+  flexBasis: true,
+  justifySelf: true,
+  alignSelf: true,
+  order: true,
+});
 
 export type BoxProps = FlexItemProps &
   LayoutProps &
