@@ -45,21 +45,21 @@ export const complex = () => (
 
 export const page = () => (
   <Flex flexDirection="row" flexWrap="wrap" textAlign="center">
-    <Box p="10px" flex="1 100%" order={1} backgroundColor="primary.light">
+    <Box p="10px" flex="1 100%" backgroundColor="primary.light">
       Header
     </Box>
-    <Box p="10px" flex="3 0px" textAlign="left" order={3} backgroundColor="primary.normal">
+    <Box p="10px" flex={[null, null, '3 0px']} textAlign="left" order={[0, 0, 2]} backgroundColor="primary.normal">
       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
       quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
       ultricies mi vitae est. Mauris placerat eleifend leo.
     </Box>
-    <Box p="10px" flex="1 0 0" order={2} backgroundColor="primary.dark">
+    <Box p="10px" flex={['1 100%', '1 0 0']} order={[0, 0, 1]} backgroundColor="primary.dark">
       Aside 1
     </Box>
-    <Box p="10px" flex="1 0 0" order={4} backgroundColor="accent.light">
+    <Box p="10px" flex={['1 100%', '1 0 0']} order={[0, 0, 3]} backgroundColor="accent.light">
       Aside 2
     </Box>
-    <Box p="10px" flex="1 100%" order={5} backgroundColor="accent.normal">
+    <Box p="10px" flex="1 100%" order={[0, 0, 4]} backgroundColor="accent.normal">
       Footer
     </Box>
   </Flex>
