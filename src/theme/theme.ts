@@ -1,8 +1,7 @@
-import { Theme } from 'styled-system';
 import { colors, fonts, spaces } from '../tokens';
-
-export const theme: Theme = {
+export const theme = {
   ...colors,
   ...spaces,
   ...fonts,
 };
+export type Theme = typeof theme;
