@@ -15,7 +15,7 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-import { FlexItemProps, flexItemProps } from '../flex/flex';
+import { FlexItemProps, flexItemProps } from '../';
 
 export type BoxProps = FlexItemProps &
   LayoutProps &
