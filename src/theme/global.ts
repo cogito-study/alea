@@ -1,8 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
+import 'typeface-raleway';
+import 'typeface-nunito-sans';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    @import url('https://fonts.googleapis.com/css?family=Raleway:600,700&display=swap');
-    @import url('https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap');
+    margin: 0;
+    padding: 0;
   }
 `;
