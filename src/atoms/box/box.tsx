@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import {
   background,
@@ -7,47 +8,52 @@ import {
   color,
   ColorProps,
   compose,
-  flexbox,
-  FlexboxProps,
   layout,
   LayoutProps,
   space,
   SpaceProps,
   typography,
   TypographyProps,
+  FlexProps,
+  FlexGrowProps,
+  FlexShrinkProps,
+  FlexBasisProps,
+  OrderProps,
+  AlignSelfProps,
+  system,
 } from 'styled-system';
 
-export type BoxProps = LayoutProps & FlexboxProps & ColorProps & SpaceProps & TypographyProps;
-export type BorderedBoxProps = BoxProps & BorderProps;
-export type BackgroundBoxProps = BoxProps & BackgroundProps;
+export type FlexItemProps = FlexProps & FlexGrowProps & FlexShrinkProps & FlexBasisProps & OrderProps & AlignSelfProps;
+export type BoxProps = FlexItemProps &
+  LayoutProps &
+  ColorProps &
+  SpaceProps &
+  TypographyProps &
+  BorderProps &
+  BackgroundProps;
+
+const flexitem = system({
+  flex: true,
+  flexGrow: true,
+  flexShrink: true,
+  flexBasis: true,
+  justifySelf: true,
+  alignSelf: true,
+  order: true,
+});
 
 const styledBoxProps = compose(
   color,
-  flexbox,
+  flexitem,
   layout,
   space,
   typography,
-);
-
-export const Box = styled.div<BoxProps>`
-  box-sizing: border-box;
-  ${styledBoxProps}
-`;
-
-const styledBorderedBoxProps = compose(
-  styledBoxProps,
   border,
-);
-
-export const BorderedBox = styled(Box)<BorderedBoxProps>`
-  ${styledBorderedBoxProps}
-`;
-
-const styledBackgroundBoxProps = compose(
-  styledBoxProps,
   background,
 );
 
-export const BackgroundBox = styled(Box)<BackgroundBoxProps>`
-  ${styledBackgroundBoxProps}
+const StyledBox = styled.div<BoxProps>`
+  ${styledBoxProps}
 `;
+
+export const Box = (props: BoxProps) => <StyledBox {...props} />;
