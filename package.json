@@ -46,7 +46,7 @@
     "@types/styled-system": "5.0.1",
     "@typescript-eslint/eslint-plugin": "1.13.0",
     "@typescript-eslint/parser": "1.13.0",
-    "eslint": "5.16.0",
+    "eslint": "6.1.0",
     "eslint-config-prettier": "6.0.0",
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "1.7.0",
