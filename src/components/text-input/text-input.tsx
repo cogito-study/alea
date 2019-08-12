@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { Box, Paragraph, BoxProps } from '../../atoms';
 import { theme, Theme } from '../../theme';
 import styled, { ThemeProps } from 'styled-components';
@@ -10,6 +10,8 @@ interface Props {
   help?: string;
   icon?: string;
   error?: string;
+  value?: string;
+  onChange?: Function; //TODO type
 }
 
 export type TextInputProps = Props & ThemeProps<Theme> & BoxProps;
@@ -41,12 +43,22 @@ const StyledInput = styled.input<TextInputProps>`
       cursor: not-allowed;
     }
     ::placeholder {
-      opacity: 0.5;
+      color: ${({ theme }: TextInputProps) => theme.colors.grey.light[3]};
     }
   }
 `;
 
-export const TextInput = ({ label, placeholder, help, theme, disabled, error, ...boxProps }: TextInputProps) => {
+export const TextInput = ({
+  label,
+  placeholder,
+  help,
+  theme,
+  disabled,
+  error,
+  value,
+  onChange,
+  ...boxProps
+}: TextInputProps) => {
   return (
     <Box {...boxProps}>
       {label && (
@@ -54,7 +66,14 @@ export const TextInput = ({ label, placeholder, help, theme, disabled, error, ..
           {label}
         </Paragraph>
       )}
-      <StyledInput placeholder={placeholder} disabled={disabled} error={error} type="text" />
+      <StyledInput
+        placeholder={placeholder}
+        disabled={disabled}
+        error={error}
+        type="text"
+        value={value}
+        onChange={(event: FormEvent<HTMLInputElement>) => onChange && onChange(event)}
+      />
       {error && (
         <Paragraph color={theme.colors.error.normal} paragraphSize="small">
           {error}
