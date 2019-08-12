@@ -8,6 +8,6 @@ interface Props {
 }
 
 export const TextInput = (props: Props) => {
-  props;
+  console.log(props);
   return <input />;
 };
