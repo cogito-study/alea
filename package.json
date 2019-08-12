@@ -1,7 +1,7 @@
 {
   "name": "@cogito-study/alea",
   "description": "The building blocks of Cogito.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": false,
   "repository": {
     "type": "git",
