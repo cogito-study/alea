@@ -5,6 +5,10 @@ import { component } from '../../utils/structure';
 export default { title: component('TextInput') };
 
 export const normal = () => <TextInput label="Favourite paper brand" placeholder="Tell me..." />;
+export const disabled = () => <TextInput label="Favourite paper brand" placeholder="Tell me..." disabled />;
+export const error = () => (
+  <TextInput label="Favourite paper brand" placeholder="Tell me..." error="You have a bad taste..." />
+);
 export const withIcon = () => (
   <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon="" />
 );
