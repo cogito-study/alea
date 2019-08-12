@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "module": "es6",
+    "target": "es6",
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "es2017",
+      "dom"
+    ],
     "jsx": "react",
     "declaration": true,
     "outDir": "dist",
@@ -14,6 +20,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "exclude": ["build", "node_modules", "src/**/*.stories.tsx"],
-  "include": ["src"]
+  "exclude": [
+    "build",
+    "node_modules",
+    "src/**/*.stories.tsx"
+  ],
+  "include": [
+    "src"
+  ]
 }
