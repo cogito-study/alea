@@ -58,4 +58,5 @@ Paragraph.defaultProps = {
   theme: theme,
   fontFamily: 'paragraph',
   paragraphSize: 'medium',
+  margin: 0,
 };
