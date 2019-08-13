@@ -46,6 +46,8 @@ const styles: Record<ParagraphSize, StyleFunction<ParagraphProps>> = {
 };
 
 const StyledParagraph = styled.p<ParagraphProps>`
+  margin: 0;
+  font-family: ${({ theme: fonts }: ParagraphProps) => fonts.fonts.paragraph};
   ${(props: ParagraphProps) => styles[props.paragraphSize](props)};
 
   ${styledProps}
@@ -56,7 +58,5 @@ export const Paragraph = (props: ParagraphProps) => <StyledParagraph {...props} 
 
 Paragraph.defaultProps = {
   theme: theme,
-  fontFamily: 'paragraph',
   paragraphSize: 'medium',
-  margin: 0,
 };
