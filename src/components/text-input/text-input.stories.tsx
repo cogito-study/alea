@@ -24,7 +24,7 @@ export const withOnChange = () => {
   );
 };
 export const wip_withIcon = () => (
-  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon="" />
+  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon="email-outline" />
 );
 export const wip_withIconAndText = () => (
   <TextInput label="Hand size" placeholder="Type here..." help="We handle this information privately" icon="" />

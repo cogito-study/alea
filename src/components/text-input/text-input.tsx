@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { Box, Paragraph, BoxProps } from '../../atoms';
 import { theme, Theme } from '../../theme';
 import styled, { ThemeProps } from 'styled-components';
+import { EmailIcon } from '../../atoms/icon/icon';
 
 interface Props {
   disabled: boolean;
@@ -48,12 +49,24 @@ const StyledInput = styled.input<TextInputProps>`
   }
 `;
 
+const StyledInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+
+  & > input:focus ~ svg {
+    fill: red;
+  }
+`;
+
 export const TextInput = ({
   label,
   placeholder,
   help,
   theme,
   disabled,
+  icon,
   error,
   value,
   onChange,
@@ -66,14 +79,18 @@ export const TextInput = ({
           {label}
         </Paragraph>
       )}
-      <StyledInput
-        placeholder={placeholder}
-        disabled={disabled}
-        error={error}
-        type="text"
-        value={value}
-        onChange={(event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event)}
-      />
+      <StyledInputContainer>
+        <StyledInput
+          placeholder={placeholder}
+          disabled={disabled}
+          error={error}
+          type="text"
+          value={value}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event)}
+          style={{ paddingLeft: '30px' }}
+        />
+        {icon && <EmailIcon color="#345678" size="medium" variant="fill" style={{ marginRight: '-30px' }}></EmailIcon>}
+      </StyledInputContainer>
       {error && (
         <Paragraph color={theme.colors.error.normal} paragraphSize="small" marginTop="8px">
           {error}
