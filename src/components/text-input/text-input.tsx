@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { ChangeEvent } from 'react';
 import { Box, Paragraph, BoxProps } from '../../atoms';
 import { theme, Theme } from '../../theme';
 import styled, { ThemeProps } from 'styled-components';
@@ -11,7 +11,7 @@ interface Props {
   icon?: string;
   error?: string;
   value?: string;
-  onChange?: Function; //TODO type
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export type TextInputProps = Props & ThemeProps<Theme> & BoxProps;
@@ -62,7 +62,7 @@ export const TextInput = ({
   return (
     <Box {...boxProps}>
       {label && (
-        <Paragraph color={theme.colors.grey.dark[2]} lineHeight="10%">
+        <Paragraph color={theme.colors.grey.dark[2]} marginBottom="4px">
           {label}
         </Paragraph>
       )}
@@ -72,14 +72,18 @@ export const TextInput = ({
         error={error}
         type="text"
         value={value}
-        onChange={(event: FormEvent<HTMLInputElement>) => onChange && onChange(event)}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event)}
       />
       {error && (
-        <Paragraph color={theme.colors.error.normal} paragraphSize="small">
+        <Paragraph color={theme.colors.error.normal} paragraphSize="small" marginTop="8px">
           {error}
         </Paragraph>
       )}
-      {help && <Paragraph paragraphSize="small">{help}</Paragraph>}
+      {help && (
+        <Paragraph paragraphSize="small" marginTop="8px">
+          {help}
+        </Paragraph>
+      )}
     </Box>
   );
 };
