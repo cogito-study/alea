@@ -60,3 +60,7 @@ const StyledBox = styled.div<BoxProps>`
 
 // @ts-ignore
 export const Box = (props: BoxProps) => <StyledBox {...props} />;
+
+Box.defaultProps = {
+  fontFamily: 'paragraph',
+};
