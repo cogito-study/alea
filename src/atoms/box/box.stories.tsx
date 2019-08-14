@@ -5,7 +5,7 @@ import { colors } from '../../tokens/color';
 
 export default { title: atom('Box') };
 
-export const colored = () => <Box height="100px" width="100px" backgroundColor="navy" />;
+export const colored = () => <Box height="100px" width="100px" backgroundColor="primary.normal" />;
 export const bordered = () => <Box height="100px" width="100px" border={`2px solid ${colors.colors.accent.normal}`} />;
 export const ordered = () => (
   <div style={{ display: 'flex' }}>
