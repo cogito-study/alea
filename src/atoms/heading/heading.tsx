@@ -29,5 +29,5 @@ const defaultProps = {
 };
 H1.defaultProps = { ...defaultProps, fontSize: [5, 7], lineHeight: 0 };
 H2.defaultProps = { ...defaultProps, fontSize: [4, 5], lineHeight: 1 };
-H3.defaultProps = { ...defaultProps, fontSize: [3, 4], lineHeight: 1, fontWeight: 'semibold' };
+H3.defaultProps = { ...defaultProps, fontSize: [3, 4], lineHeight: 1 };
 H4.defaultProps = { ...defaultProps, fontSize: 3, lineHeight: 1, fontWeight: 'semibold' };
