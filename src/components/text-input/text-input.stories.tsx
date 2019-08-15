@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { TextInput } from './text-input';
 import { component } from '../../utils/structure';
 import { action } from '@storybook/addon-actions';
+import { EmailIcon } from '../../atoms/icon/icon';
 
 export default { title: component('TextInput') };
 
@@ -24,8 +25,13 @@ export const withOnChange = () => {
   );
 };
 export const wip_withIcon = () => (
-  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon="email-outline" />
+  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} />
 );
 export const wip_withIconAndText = () => (
-  <TextInput label="Hand size" placeholder="Type here..." help="We handle this information privately" icon="" />
+  <TextInput
+    label="Hand size"
+    placeholder="Type here..."
+    help="We handle this information privately"
+    icon="email-outline"
+  />
 );

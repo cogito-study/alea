@@ -1,35 +1,49 @@
-import React from 'react';
-import { ReactComponent as EmailOutline } from '../../eva-icons/outline/svg/email-outline.svg';
-import { ReactComponent as EmailFill } from '../../eva-icons/fill/svg/email.svg';
-import { Color } from 'csstype';
-import styled from 'styled-components';
+import React, { HTMLProps, ReactElement } from 'react';
+import styled, { ThemeProps } from 'styled-components';
+import { color, ColorProps, compose, layout, LayoutProps, size, SizeProps } from 'styled-system';
+// @ts-ignore
+import { themeGet } from '@styled-system/theme-get';
 
-export type IconSize = 'small' | 'medium' | 'large';
+import { theme, Theme } from '../../theme';
+import { ReactComponent as EmailOutline } from '../../assets/icons/email-outline.svg';
+import { ReactComponent as EmailFill } from '../../assets/icons/email.svg';
+
 export type IconVariant = 'fill' | 'outline';
-export interface IconProps {
+export interface Props {
   variant: IconVariant;
-  size: IconSize;
-  color: Color;
 }
 
+export type IconProps = Props & ThemeProps<Theme> & ColorProps & LayoutProps & SizeProps & HTMLProps<SVGElement>;
+
+interface Icons {
+  filledIcon: ReactElement;
+  outlinedIcon: ReactElement;
+}
+type IconPropsWithIcons = IconProps & Icons;
+
+const styledProps = compose(
+  color,
+  layout,
+  size,
+);
+
 const StyledIcon = styled.svg<IconProps>`
-  fill: ${({ color }: IconProps) => color};
-  width: 25px;
-  height: 25px;
+  fill: ${({ color }: IconProps) => themeGet(`colors.${color}`, color)};
+  ${styledProps};
 `;
 
+const Icon = ({ filledIcon, outlinedIcon, ...props }: IconPropsWithIcons) => {
+  // @ts-ignore
+  return <StyledIcon {...props}>{props.variant === 'fill' ? filledIcon : outlinedIcon}</StyledIcon>;
+};
+
+Icon.defaultProps = {
+  theme,
+  size: 'iconSmall',
+  color: 'primary.normal',
+  variant: 'fill',
+};
+
 export const EmailIcon = (props: IconProps) => {
-  if (props.variant === 'fill') {
-    return (
-      <StyledIcon {...props}>
-        <EmailFill></EmailFill>
-      </StyledIcon>
-    );
-  } else if (props.variant === 'outline') {
-    return (
-      <StyledIcon {...props}>
-        <EmailOutline></EmailOutline>
-      </StyledIcon>
-    );
-  }
+  return <Icon {...props} filledIcon={<EmailFill />} outlinedIcon={<EmailOutline />} />;
 };

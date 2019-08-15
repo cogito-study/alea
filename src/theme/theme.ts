@@ -1,7 +1,8 @@
-import { colors, fonts, spaces, borders } from '../tokens';
+import { colors, fonts, spaces, borders, sizes } from '../tokens';
 
 export const theme = {
   ...borders,
+  ...sizes,
   ...colors,
   ...spaces,
   ...fonts,
