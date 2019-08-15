@@ -22,6 +22,10 @@ const defaultStyle = ({ theme }: ButtonProps) => css`
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &:focus {
     outline: none;
   }
