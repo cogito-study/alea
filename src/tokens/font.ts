@@ -2,7 +2,7 @@ const fontStack = (fonts: string[]) => fonts.map((font) => (font.includes(' ') ?
 
 export const fonts = {
   fonts: {
-    header: fontStack(['Raleway', 'Helvetica', 'serif']),
+    header: fontStack(['rawline', 'Helvetica', 'serif']),
     paragraph: fontStack(['Nunito Sans', 'Helvetica', 'serif']),
   },
   fontSizes: [10, 16, 18, 20, 24, 32, 40, 48],
