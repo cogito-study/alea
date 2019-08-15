@@ -23,6 +23,7 @@
   "author": "Mate Papp",
   "license": "MIT",
   "dependencies": {
+    "@styled-system/theme-get": "^5.1.0",
     "@types/styled-components": "4.1.18",
     "@types/styled-system": "5.0.1",
     "react": "^16.8.6",
