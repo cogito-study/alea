@@ -31,8 +31,7 @@
     "react-scripts": "3.1.1",
     "styled-components": "^4.3.2",
     "styled-system": "^5.0.18",
-    "typeface-nunito-sans": "0.0.72",
-    "typeface-raleway": "0.0.75"
+    "typeface-nunito-sans": "0.0.72"
   },
   "devDependencies": {
     "@storybook/addon-actions": "5.2.0-beta.30",
