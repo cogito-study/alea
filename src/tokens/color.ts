@@ -3,7 +3,7 @@ export const colors = {
     primary: {
       light: '#BECAEA',
       normal: '#6A87D8',
-      dark: '#303AB2',
+      dark: '#485CC7',
     },
     accent: {
       light: '#A4EDDD',
