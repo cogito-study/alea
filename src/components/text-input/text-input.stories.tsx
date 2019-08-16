@@ -46,6 +46,6 @@ export const wip_withIconAndText = () => (
     label="Hand size"
     placeholder="Type here..."
     help="We handle this information privately"
-    icon="email-outline"
+    icon={<EmailIcon />}
   />
 );
