@@ -1,6 +1,7 @@
 import React, { HTMLProps } from 'react';
 import styled from 'styled-components';
 import {
+  AlignSelfProps,
   background,
   BackgroundProps,
   border,
@@ -8,19 +9,24 @@ import {
   color,
   ColorProps,
   compose,
+  FlexBasisProps,
   FlexGrowProps,
   FlexProps,
+  FlexShrinkProps,
+  gridArea,
+  GridAreaProps,
+  gridColumn,
+  GridColumnProps,
+  gridRow,
+  GridRowProps,
   layout,
   LayoutProps,
+  OrderProps,
   space,
   SpaceProps,
+  system,
   typography,
   TypographyProps,
-  FlexShrinkProps,
-  FlexBasisProps,
-  OrderProps,
-  AlignSelfProps,
-  system,
 } from 'styled-system';
 
 export type FlexItemProps = FlexProps & FlexGrowProps & FlexShrinkProps & FlexBasisProps & OrderProps & AlignSelfProps;
@@ -36,6 +42,9 @@ export const flexItemProps = system({
 });
 
 export type BoxProps = FlexItemProps &
+  GridAreaProps &
+  GridColumnProps &
+  GridRowProps &
   LayoutProps &
   ColorProps &
   SpaceProps &
@@ -48,6 +57,9 @@ const styledBoxProps = compose(
   color,
   flexItemProps,
   layout,
+  gridArea,
+  gridColumn,
+  gridRow,
   space,
   typography,
   border,
