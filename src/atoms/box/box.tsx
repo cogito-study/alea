@@ -11,6 +11,9 @@ import {
   FlexGrowProps,
   FlexProps,
   layout,
+  gridArea,
+  gridColumn,
+  gridRow,
   LayoutProps,
   space,
   SpaceProps,
@@ -21,6 +24,9 @@ import {
   OrderProps,
   AlignSelfProps,
   system,
+  GridAreaProps,
+  GridColumnProps,
+  GridRowProps,
 } from 'styled-system';
 
 export type FlexItemProps = FlexProps & FlexGrowProps & FlexShrinkProps & FlexBasisProps & OrderProps & AlignSelfProps;
@@ -36,6 +42,9 @@ export const flexItemProps = system({
 });
 
 export type BoxProps = FlexItemProps &
+  GridAreaProps &
+  GridColumnProps &
+  GridRowProps &
   LayoutProps &
   ColorProps &
   SpaceProps &
@@ -48,6 +57,9 @@ const styledBoxProps = compose(
   color,
   flexItemProps,
   layout,
+  gridArea,
+  gridColumn,
+  gridRow,
   space,
   typography,
   border,
