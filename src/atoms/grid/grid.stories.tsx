@@ -1,6 +1,6 @@
 import React from 'react';
-import { atom } from '../../utils/structure';
 import { Box } from '../';
+import { atom } from '../../utils/structure';
 import { Grid } from './grid';
 
 export default { title: atom('Grid') };
