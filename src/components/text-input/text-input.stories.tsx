@@ -27,6 +27,20 @@ export const withOnChange = () => {
 export const wip_withIcon = () => (
   <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} />
 );
+
+export const wip_withIcon_disabled = () => (
+  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} disabled />
+);
+
+export const wip_withIcon_error = () => (
+  <TextInput
+    label="Best skill with your nose"
+    placeholder="Sorry for being nosy..."
+    icon={<EmailIcon />}
+    error="Too short"
+  />
+);
+
 export const wip_withIconAndText = () => (
   <TextInput
     label="Hand size"

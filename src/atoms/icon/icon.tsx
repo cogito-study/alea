@@ -1,12 +1,11 @@
-import React, { HTMLProps, ReactElement } from 'react';
-import styled, { ThemeProps } from 'styled-components';
-import { color, ColorProps, compose, layout, LayoutProps, size, SizeProps } from 'styled-system';
 // @ts-ignore
 import { themeGet } from '@styled-system/theme-get';
-
-import { theme, Theme } from '../../theme';
+import React, { HTMLProps, ReactNode } from 'react';
+import styled, { ThemeProps } from 'styled-components';
+import { color, ColorProps, compose, layout, LayoutProps, size, SizeProps } from 'styled-system';
 import { ReactComponent as EmailOutline } from '../../assets/icons/email-outline.svg';
 import { ReactComponent as EmailFill } from '../../assets/icons/email.svg';
+import { theme, Theme } from '../../theme';
 
 export type IconVariant = 'fill' | 'outline';
 export interface Props {
@@ -16,8 +15,8 @@ export interface Props {
 export type IconProps = Props & ThemeProps<Theme> & ColorProps & LayoutProps & SizeProps & HTMLProps<SVGElement>;
 
 interface Icons {
-  filledIcon: ReactElement;
-  outlinedIcon: ReactElement;
+  filledIcon: ReactNode;
+  outlinedIcon: ReactNode;
 }
 type IconPropsWithIcons = IconProps & Icons;
 

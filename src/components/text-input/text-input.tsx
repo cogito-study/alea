@@ -1,14 +1,14 @@
-import React, { ChangeEvent, HTMLProps, ReactElement } from 'react';
-import { Box, Paragraph, BoxProps } from '../../atoms';
-import { theme, Theme } from '../../theme';
+import React, { ChangeEvent, ReactNode, useState, HTMLProps } from 'react';
 import styled, { ThemeProps } from 'styled-components';
+import { Box, BoxProps, Paragraph, Flex } from '../../atoms';
+import { theme, Theme } from '../../theme';
 
 interface Props {
   disabled: boolean;
   label?: string;
   placeholder?: string;
   help?: string;
-  icon?: ReactElement;
+  icon?: ReactNode;
   error?: string;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -16,32 +16,61 @@ interface Props {
 
 export type TextInputProps = Props & ThemeProps<Theme> & BoxProps;
 
-interface ExtraProps {
-  withIcon: boolean;
-  withError: boolean;
+interface StateProps {
+  focused: boolean;
+  disabled: boolean;
+  error: boolean;
 }
 
-type StyledInputProps = ExtraProps & ThemeProps<Theme> & HTMLProps<HTMLInputElement>;
+interface IconProps {
+  icon: ReactNode;
+}
 
-const StyledInput = styled.input<StyledInputProps>`
-  background-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[4]};
+type StyledInputContainerProps = StateProps & IconProps & ThemeProps<Theme>;
+
+const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  position: relative;
+
+  background-color: ${({ theme }: StyledInputContainerProps) => theme.colors.grey.light[4]};
   border-width: 1px;
   border-style: solid;
-  border-color: ${({ theme, withError }: StyledInputProps) =>
-    withError ? theme.colors.error.normal : theme.colors.grey.light[2]};
-  padding: ${({ theme }: StyledInputProps) => theme.spaces[2] + 'px'};
-  color: ${({ theme }: StyledInputProps) => theme.colors.grey.dark[2]};
-  font-family: ${({ theme }: StyledInputProps) => theme.fonts.paragraph};
-  min-width: 200px;
+  border-color: ${({ theme, error, disabled, focused }: StyledInputContainerProps) =>
+    focused
+      ? theme.colors.primary.normal
+      : error
+      ? theme.colors.error.normal
+      : disabled
+      ? theme.colors.grey.light[3]
+      : theme.colors.grey.light[2]};
+  padding: ${({ theme }: StyledInputContainerProps) => theme.spaces[2] + 'px'};
+  font-family: ${({ theme }: StyledInputContainerProps) => theme.fonts.paragraph};
+  max-width: 280px;
   outline: none;
+
+  & > input ~ div > svg {
+    fill: ${({ theme: { colors }, error, focused }: StyledInputContainerProps) =>
+      focused ? colors.primary.normal : error ? colors.error.normal : colors.grey.light[2]};
+  }
+
+  & > input:disabled ~ div > svg {
+    fill: ${({ theme: { colors } }: StyledInputContainerProps) => colors.grey.light[3]};
+  }
+`;
+
+export type StyledInputProps = ThemeProps<Theme> & HTMLProps<HTMLInputElement>;
+
+const StyledInput = styled.input<StyledInputProps>`
+  border: none;
+  color: ${({ theme }: StyledInputProps) => theme.colors.grey.dark[2]};
+  outline: none;
+  background-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[4]};
 
   ::placeholder {
     color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[2]};
     opacity: 1; /* Firefox */
-  }
-
-  :focus {
-    border-color: ${({ theme }: StyledInputProps) => theme.colors.primary.normal};
   }
 
   :disabled {
@@ -53,24 +82,12 @@ const StyledInput = styled.input<StyledInputProps>`
       color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[3]};
     }
   }
-  padding-left: ${({ withIcon, theme }: StyledInputProps) =>
-    withIcon ? theme.sizes.iconSmall + 2 * theme.spaces[2] + 'px' : theme.spaces[2] + 'px'};
 `;
 
-const StyledInputContainer = styled.div`
+const IconContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
-  position: relative;
-
-  & > input:focus ~ div > svg {
-    fill: red;
-  }
-`;
-
-const IconContainer = styled(Box)`
-  left: 0;
+  flex-wrap: wrap;
+  padding-right: 8px;
 `;
 
 export const TextInput = ({
@@ -85,6 +102,13 @@ export const TextInput = ({
   onChange,
   ...boxProps
 }: TextInputProps) => {
+  const [focused, setFocused] = useState(false);
+  const onFocus = () => {
+    setFocused(true);
+  };
+  const onBlur = () => {
+    setFocused(false);
+  };
   return (
     <Box {...boxProps}>
       {label && (
@@ -92,15 +116,15 @@ export const TextInput = ({
           {label}
         </Paragraph>
       )}
-      <StyledInputContainer>
+      <StyledInputContainer focused={focused} disabled={disabled} theme={theme} error={!!error} icon={icon}>
         <StyledInput
           placeholder={placeholder}
           disabled={disabled}
-          withError={!!error}
           type="text"
           value={value}
           onChange={(event: ChangeEvent<HTMLInputElement>) => onChange && onChange(event)}
-          withIcon={!!icon}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
         {icon && <IconContainer>{icon}</IconContainer>}
       </StyledInputContainer>
