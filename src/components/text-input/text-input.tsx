@@ -45,7 +45,7 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
       : disabled
       ? theme.colors.grey.light[3]
       : theme.colors.grey.light[2]};
-  padding: ${({ theme }: StyledInputContainerProps) => theme.spaces[2] + 'px'};
+  padding: ${({ theme }: StyledInputContainerProps) => theme.space[2] + 'px'};
   font-family: ${({ theme }: StyledInputContainerProps) => theme.fonts.paragraph};
   max-width: 280px;
   outline: none;
