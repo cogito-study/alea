@@ -1,22 +1,22 @@
-import React, { Fragment } from 'react';
 import { action } from '@storybook/addon-actions';
-
-import { Button } from './button';
+import { text } from '@storybook/addon-knobs';
+import React, { Fragment } from 'react';
 import { atom } from '../../utils/structure';
+import { Button } from './button';
 
 export default { title: atom('Button') };
 
-export const primary = () => <Button onClick={action('clicked')}>primary</Button>;
+export const primary = () => <Button onClick={action('clicked')}>{text('Content', 'primary')}</Button>;
 
 export const secondary = () => (
   <Button variant="secondary" onClick={action('clicked')}>
-    secondary
+    {text('Content', 'secondary')}
   </Button>
 );
 
 export const tertiary = () => (
   <Button variant="tertiary" onClick={action('clicked')}>
-    tertiary
+    {text('Content', 'tertiary')}
   </Button>
 );
 
@@ -24,13 +24,13 @@ export const disabled = () => (
   <Fragment>
     {/** TODO: Box it! */}
     <Button onClick={action('clicked')} disabled>
-      primary
+      {text('Primary button content', 'primary')}
     </Button>
     <Button variant="secondary" onClick={action('clicked')} disabled>
-      secondary
+      {text('Secondary button content', 'secondary')}
     </Button>
     <Button variant="tertiary" onClick={action('clicked')} disabled>
-      tertiary
+      {text('Tertiary button content', 'tertiary')}
     </Button>
   </Fragment>
 );
