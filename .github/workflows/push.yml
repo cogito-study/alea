@@ -13,7 +13,3 @@ jobs:
       uses: nuxt/actions-yarn@master
       with:
         args: run build-storybook
-    - name: install
-      uses: nuxt/actions-yarn@master
-      with:
-        args: install
