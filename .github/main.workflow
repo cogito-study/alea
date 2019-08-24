@@ -14,8 +14,8 @@ action "build" {
 }
 
 action "lint" {
-  uses = "nuxt/actions-yarn@master"
-  args = "lint"
+  uses = "stefanoeb/eslint-action@master"
+  args = ". --ext .ts,.tsx"
 }
 
 action "publish" {
