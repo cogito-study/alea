@@ -10,7 +10,7 @@ workflow "publish on release" {
 
 action "build" {
   uses = "nuxt/actions-yarn@master"
-  args = "build-storybook"
+  args = "run build-storybook"
 }
 
 action "lint" {
