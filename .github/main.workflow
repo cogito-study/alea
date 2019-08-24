@@ -14,6 +14,7 @@ action "install" {
 }
 
 action "build" {
+  needs = "install"
   uses = "nuxt/actions-yarn@master"
   args = "run build-storybook"
 }
