@@ -1,11 +1,16 @@
 workflow "build and test" {
   on = "push"
-  resolves = ["build", "lint"]
+  resolves = ["install", "build", "lint"]
 }
 
 workflow "publish on release" {
   on = "release"
   resolves = ["publish"]
+}
+
+action "install" {
+  uses = "nuxt/actions-yarn@master"
+  args = "install"
 }
 
 action "build" {
