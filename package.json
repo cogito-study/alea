@@ -34,13 +34,13 @@
     "typeface-nunito-sans": "0.0.72"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "5.2.0-beta.38",
-    "@storybook/addon-info": "5.2.0-beta.38",
+    "@storybook/addon-actions": "5.2.0-beta.40",
+    "@storybook/addon-info": "5.2.0-beta.40",
     "@storybook/addon-knobs": "5.1.11",
-    "@storybook/addon-links": "5.2.0-beta.38",
+    "@storybook/addon-links": "5.2.0-beta.40",
     "@storybook/addon-viewport": "5.1.11",
-    "@storybook/addons": "5.2.0-beta.38",
-    "@storybook/react": "5.2.0-beta.38",
+    "@storybook/addons": "5.2.0-beta.40",
+    "@storybook/react": "5.2.0-beta.40",
     "@types/jest": "24.0.17",
     "@types/node": "12.7.2",
     "@types/react": "16.9.2",
