@@ -1,7 +1,7 @@
 on: push
-name: build and test
+name: lint and build
 jobs:
-  lint:
+  lint-and-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -9,7 +9,7 @@ jobs:
       uses: stefanoeb/eslint-action@master
       with:
         args: . --ext .ts,.tsx
-    - name: build
+    - name: build-storybook
       uses: nuxt/actions-yarn@master
       with:
         args: run build-storybook
