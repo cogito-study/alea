@@ -21,11 +21,13 @@
     "resolveJsonModule": true
   },
   "exclude": [
+    "dist",
     "build",
     "node_modules",
-    "src/**/*.stories.tsx"
   ],
   "include": [
-    "src"
+    "src/**/*.stories.tsx",
+    "src/**/*.tsx",
+    "src/**/*.ts",
   ]
 }
