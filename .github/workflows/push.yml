@@ -1,7 +1,7 @@
 on: push
-name: lint and build
+name: lint, build and publish
 jobs:
-  lint-and-build:
+  lint-build-and-publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -17,3 +17,11 @@ jobs:
       uses: nuxt/actions-yarn@master
       with:
         args: run build-lib
+    - name: Publish Filter
+      uses: actions/bin/filter@master
+      with:
+        args: branch master
+    - name: Publish
+      uses: mikeal/merge-release@master
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
