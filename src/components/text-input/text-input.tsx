@@ -45,9 +45,10 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
       : disabled
       ? theme.colors.grey.light[3]
       : theme.colors.grey.light[2]};
-  padding: ${({ theme }: StyledInputContainerProps) => theme.space[2] + 'px'};
+
   font-family: ${({ theme }: StyledInputContainerProps) => theme.fonts.paragraph};
   max-width: 280px;
+  min-height: 38px;
   outline: none;
 
   & > input ~ div > svg {
@@ -67,6 +68,8 @@ const StyledInput = styled.input<StyledInputProps>`
   color: ${({ theme }: StyledInputProps) => theme.colors.grey.dark[2]};
   outline: none;
   background-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[4]};
+  padding: 0px;
+  padding-left: 8px;
 
   ::placeholder {
     color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[2]};
@@ -87,7 +90,7 @@ const StyledInput = styled.input<StyledInputProps>`
 const IconContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding-right: 8px;
+  padding-left: 8px;
 `;
 
 export const TextInput = ({
