@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
 import { withKnobs } from '@storybook/addon-knobs';
 import { ThemeProvider, GlobalStyle } from '../src/theme';
@@ -15,7 +16,11 @@ addDecorator((story) => (
   </ThemeProvider>
 ));
 
-const req = require.context('../src/', true, /\.stories\.tsx$/);
-// ignore typing until 5.2 reaches stable version
-// @ts-ignore
-configure(req, module);
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+});
+
+configure(require.context('../src', true, /\.stories\.(ts|tsx|mdx)$/), module);
