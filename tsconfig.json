@@ -2,13 +2,7 @@
   "compilerOptions": {
     "module": "es6",
     "target": "es6",
-    "lib": [
-      "es5",
-      "es6",
-      "es7",
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "jsx": "react",
     "declaration": true,
     "outDir": "dist",
@@ -20,14 +14,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "includes": [
-    "src/**/*.tsx",
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build",
-    "example",
-  ]
+  "includes": ["src/**/*.tsx", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "build", "example"]
 }
