@@ -4,16 +4,16 @@ jobs:
   lint-and-build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: lint
-      uses: stefanoeb/eslint-action@master
-      with:
-        args: . --ext .ts,.tsx
-    - name: build-storybook
-      uses: nuxt/actions-yarn@master
-      with:
-        args: run build-storybook
-    - name: build-lib
-      uses: nuxt/actions-yarn@master
-      with:
-        args: run build-lib
+      - uses: actions/checkout@master
+      - name: lint
+        uses: stefanoeb/eslint-action@master
+        with:
+          args: . --ext .ts,.tsx
+      - name: build-storybook
+        uses: nuxt/actions-yarn@master
+        with:
+          args: run build-storybook
+      - name: build-lib
+        uses: nuxt/actions-yarn@master
+        with:
+          args: run build-lib
