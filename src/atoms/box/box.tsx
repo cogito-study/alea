@@ -1,5 +1,7 @@
+import React, { HTMLProps } from 'react';
 import styled from 'styled-components';
 import {
+  AlignSelfProps,
   background,
   BackgroundProps,
   border,
@@ -7,47 +9,70 @@ import {
   color,
   ColorProps,
   compose,
-  flexbox,
-  FlexboxProps,
+  FlexBasisProps,
+  FlexGrowProps,
+  FlexProps,
+  FlexShrinkProps,
+  gridArea,
+  GridAreaProps,
+  gridColumn,
+  GridColumnProps,
+  gridRow,
+  GridRowProps,
   layout,
   LayoutProps,
+  OrderProps,
   space,
   SpaceProps,
+  system,
   typography,
   TypographyProps,
 } from 'styled-system';
 
-export type BoxProps = LayoutProps & FlexboxProps & ColorProps & SpaceProps & TypographyProps;
-export type BorderedBoxProps = BoxProps & BorderProps;
-export type BackgroundBoxProps = BoxProps & BackgroundProps;
+export type FlexItemProps = FlexProps & FlexGrowProps & FlexShrinkProps & FlexBasisProps & OrderProps & AlignSelfProps;
+
+export const flexItemProps = system({
+  flex: true,
+  flexGrow: true,
+  flexShrink: true,
+  flexBasis: true,
+  justifySelf: true,
+  alignSelf: true,
+  order: true,
+});
+
+export type BoxProps = FlexItemProps &
+  GridAreaProps &
+  GridColumnProps &
+  GridRowProps &
+  LayoutProps &
+  ColorProps &
+  SpaceProps &
+  TypographyProps &
+  BorderProps &
+  BackgroundProps &
+  HTMLProps<HTMLDivElement>;
 
 const styledBoxProps = compose(
   color,
-  flexbox,
+  flexItemProps,
   layout,
+  gridArea,
+  gridColumn,
+  gridRow,
   space,
   typography,
-);
-
-export const Box = styled.div<BoxProps>`
-  box-sizing: border-box;
-  ${styledBoxProps}
-`;
-
-const styledBorderedBoxProps = compose(
-  styledBoxProps,
   border,
-);
-
-export const BorderedBox = styled(Box)<BorderedBoxProps>`
-  ${styledBorderedBoxProps}
-`;
-
-const styledBackgroundBoxProps = compose(
-  styledBoxProps,
   background,
 );
 
-export const BackgroundBox = styled(Box)<BackgroundBoxProps>`
-  ${styledBackgroundBoxProps}
+const StyledBox = styled.div<BoxProps>`
+  ${styledBoxProps}
 `;
+
+// @ts-ignore
+export const Box = (props: BoxProps) => <StyledBox {...props} />;
+
+Box.defaultProps = {
+  fontFamily: 'paragraph',
+};
