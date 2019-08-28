@@ -3,6 +3,7 @@ name: publish
 jobs:
   publish:
     runs-on: ubuntu-latest
+    steps:
     - name: Publish Filter
       uses: actions/bin/filter@master
       with:
