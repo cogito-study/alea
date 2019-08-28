@@ -24,15 +24,15 @@ export const withOnChange = () => {
     />
   );
 };
-export const wip_withIcon = () => (
+export const withIcon = () => (
   <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} />
 );
 
-export const wip_withIcon_disabled = () => (
+export const withIconDisabled = () => (
   <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} disabled />
 );
 
-export const wip_withIcon_error = () => (
+export const withIconError = () => (
   <TextInput
     label="Best skill with your nose"
     placeholder="Sorry for being nosy..."

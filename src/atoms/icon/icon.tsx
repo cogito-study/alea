@@ -62,3 +62,10 @@ const EmailOutline = () => (
 export const EmailIcon = (props: IconProps) => {
   return <Icon {...props} filledIcon={<EmailFill />} outlinedIcon={<EmailOutline />} />;
 };
+
+EmailIcon.defaultProps = {
+  theme,
+  size: 'iconSmall',
+  color: 'primary.normal',
+  variant: 'fill',
+};

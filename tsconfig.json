@@ -20,12 +20,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "exclude": [
-    "build",
-    "node_modules",
-    "src/**/*.stories.tsx"
+  "includes": [
+    "src/**/*.tsx",
+    "src/**/*.ts"
   ],
-  "include": [
-    "src"
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "example",
   ]
 }
