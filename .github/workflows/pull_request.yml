@@ -1,5 +1,10 @@
-name: shaking finger action
-on: pull_request
+name: deploy
+on:
+  push:
+    branches:
+      - '*'
+      - '!renovate/*'
+      - '!release'
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
@@ -24,10 +29,3 @@ jobs:
       - uses: actions/zeit-now@master
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
-  post-gif-on-fail:
-    needs: [lint-and-build, deploy]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: jessfraz/shaking-finger-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

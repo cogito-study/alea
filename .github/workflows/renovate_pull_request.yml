@@ -1,9 +1,8 @@
-name: deploy
+name: lint and build
 on:
-  push:
+  pull_request:
     branches:
-      - '*'
-      - '!renovate/*'
+      - 'renovate/*'
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
@@ -21,10 +20,3 @@ jobs:
         uses: nuxt/actions-yarn@master
         with:
           args: run build-lib
-  deploy:
-    needs: lint-and-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/zeit-now@master
-        env:
-          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
