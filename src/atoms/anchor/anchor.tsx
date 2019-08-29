@@ -1,3 +1,4 @@
+// @ts-ignore
 import { themeGet } from '@styled-system/theme-get';
 import styled, { ThemeProps, css } from 'styled-components';
 import React, { HTMLProps } from 'react';

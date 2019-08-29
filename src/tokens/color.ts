@@ -6,9 +6,9 @@ export const colors = {
       dark: '#485CC7',
     },
     accent: {
-      light: '#A4EDDD',
-      normal: '#5ECCB9',
-      dark: '#1B8B80',
+      light: '#4EDCCA',
+      normal: '#00D2B3',
+      dark: '#009081',
     },
     grey: {
       light: {
