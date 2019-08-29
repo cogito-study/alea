@@ -7,7 +7,7 @@ interface Props {
   disabled: boolean;
   label?: string;
   placeholder?: string;
-  help?: string;
+  help?: string | ReactNode;
   icon?: ReactNode;
   error?: string;
   value?: string;
@@ -47,7 +47,7 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
       : theme.colors.grey.light[2]};
 
   font-family: ${({ theme }: StyledInputContainerProps) => theme.fonts.paragraph};
-  max-width: 280px;
+  max-width: 300px;
   min-height: 38px;
   outline: none;
 
@@ -70,6 +70,7 @@ const StyledInput = styled.input<StyledInputProps>`
   background-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[4]};
   padding: 0px;
   padding-left: 8px;
+  font-size: 16px;
 
   ::placeholder {
     color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[2]};
@@ -136,8 +137,10 @@ export const TextInput = ({
           {error}
         </Paragraph>
       )}
-      {help && (
-        <Paragraph paragraphSize="small" marginTop="8px">
+      {React.isValidElement(help) ? (
+        help
+      ) : (
+        <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
           {help}
         </Paragraph>
       )}
