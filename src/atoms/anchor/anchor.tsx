@@ -51,6 +51,6 @@ export const Anchor = (props: AnchorProps) => <StyledAnchor {...props} />;
 
 Anchor.defaultProps = {
   theme: theme,
-  fontFamily: 'header',
+  fontFamily: 'heading',
   fontSize: 1,
 };

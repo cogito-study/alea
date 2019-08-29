@@ -46,7 +46,7 @@ export const complex = () => (
 export const page = () => (
   <Flex flexDirection="row" flexWrap="wrap" textAlign="center">
     <Box p={3} flex="1 100%" backgroundColor="primary.light">
-      Header
+      Heading
     </Box>
     <Box p={3} flex={[null, null, '3 0px']} textAlign="left" order={[0, 0, 2]} backgroundColor="primary.normal">
       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
