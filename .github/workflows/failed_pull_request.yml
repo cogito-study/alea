@@ -1,0 +1,9 @@
+name: shaking finger action
+on: pull_request
+jobs:
+  post-gif-on-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jessfraz/shaking-finger-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
