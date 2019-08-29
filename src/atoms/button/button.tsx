@@ -162,7 +162,7 @@ Button.defaultProps = {
   theme,
   variant: 'primary',
   disabled: false,
-  fontFamily: 'header',
+  fontFamily: 'heading',
   fontSize: 1,
   minWidth: '120px',
   height: '40px',
