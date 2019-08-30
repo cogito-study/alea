@@ -29,3 +29,5 @@ jobs:
       - uses: actions/zeit-now@master
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+        with:
+          args: ./build
