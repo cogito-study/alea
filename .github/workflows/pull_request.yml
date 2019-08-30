@@ -27,3 +27,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/zeit-now@master
+        with:
+          args: --public --no-clipboard deploy ./site > $HOME/deploy.txt
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+      - uses: actions/zeit-now@master
+        with:
+          args: alias `cat $HOME/deploy.txt
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
