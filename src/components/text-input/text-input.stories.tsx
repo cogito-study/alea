@@ -3,6 +3,7 @@ import { TextInput } from './text-input';
 import { component } from '../../utils/structure';
 import { action } from '@storybook/addon-actions';
 import { EmailIcon } from '../../atoms/icon/icon';
+import { Paragraph, Anchor } from '../../atoms';
 
 export default { title: component('TextInput') };
 
@@ -41,11 +42,44 @@ export const withIconError = () => (
   />
 );
 
-export const wip_withIconAndText = () => (
+export const withIconAndText = () => (
   <TextInput
     label="Hand size"
     placeholder="Type here..."
     help="We handle this information privately"
+    icon={<EmailIcon />}
+  />
+);
+
+export const withIconAndComplexHelp = () => (
+  <TextInput
+    label="Hand size"
+    placeholder="Type here..."
+    help={
+      <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
+        This element is very{' '}
+        <Anchor fontSize="8px" href="/" color="primary.normal" fontWeight="bold">
+          complex.
+        </Anchor>
+      </Paragraph>
+    }
+    icon={<EmailIcon />}
+  />
+);
+
+export const withIconAndComplexHelpAndError = () => (
+  <TextInput
+    label="Hand size"
+    placeholder="Type here..."
+    error="Error 1234"
+    help={
+      <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
+        This element is very{' '}
+        <Anchor fontSize="8px" href="/" color="primary.normal" fontWeight="bold">
+          complex.
+        </Anchor>
+      </Paragraph>
+    }
     icon={<EmailIcon />}
   />
 );
