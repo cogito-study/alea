@@ -1,6 +1,6 @@
 import { useMedia, useWindowSize } from 'react-use';
-import { theme } from '../theme';
-import { SizeType } from '../utils/types';
+import { theme } from '../../theme';
+import { SizeType } from '../../utils/types';
 
 export const useSmallScreenSize = (): boolean => useMedia(`(min-width: 0px) and (max-width: ${theme.breakpoints[0]})`);
 
