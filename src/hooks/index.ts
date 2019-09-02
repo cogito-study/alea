@@ -1,2 +1,2 @@
-export * from './use-media/use-media';
+export * from './use-screen/use-screen';
 export * from './use-theme/use-theme';
