@@ -32,7 +32,6 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
   align-items: center;
   justify-content: flex-end;
   flex-direction: row-reverse;
-  position: relative;
 
   background-color: ${({ theme }: StyledInputContainerProps) => theme.colors.grey.light[4]};
   border-width: 1px;
