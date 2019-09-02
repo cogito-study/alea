@@ -70,7 +70,7 @@ const StyledInput = styled.input<StyledInputProps>`
   background-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[4]};
   padding: 0px;
   padding-left: 8px;
-  font-size: 16px;
+  font-size: ${({ theme }: StyledInputProps) => theme.fontSizes[1]};
 
   ::placeholder {
     color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[2]};
