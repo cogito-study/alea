@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box } from '../atoms';
-import { hook } from '../utils/structure';
+import { Box } from '../../atoms';
+import { hook } from '../../utils/structure';
 import { useSmallScreenSize, useWindowSizeType } from './use-media';
 /* eslint react-hooks/rules-of-hooks: 0 */
 
