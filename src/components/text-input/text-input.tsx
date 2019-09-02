@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactNode, useState, HTMLProps } from 'react';
+import React, { ChangeEvent, ReactNode, useState, HTMLProps, isValidElement } from 'react';
 import styled, { ThemeProps } from 'styled-components';
 import { Box, BoxProps, Paragraph, Flex } from '../../atoms';
 import { theme, Theme } from '../../theme';
@@ -137,7 +137,7 @@ export const TextInput = ({
           {error}
         </Paragraph>
       )}
-      {React.isValidElement(help) ? (
+      {isValidElement(help) ? (
         help
       ) : (
         <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
