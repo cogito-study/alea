@@ -1,8 +1,9 @@
-name: lint and build
+name: lint-and-build
 on:
-  pull_request:
+  push:
     branches:
-      - 'renovate/*'
+      - '*'
+      - '!release'
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest

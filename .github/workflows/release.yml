@@ -20,14 +20,8 @@ jobs:
         uses: nuxt/actions-yarn@master
         with:
           args: run build-lib
-  deploy:
-    needs: lint-and-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/zeit-now@master
-        env:
-          NODE_ENV: production
   publish:
+    needs: lint-and-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
