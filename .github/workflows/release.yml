@@ -1,5 +1,8 @@
-on: push
-name: lint and build
+name: publish
+on:
+  push:
+    branches:
+      - release
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
@@ -17,3 +20,16 @@ jobs:
         uses: nuxt/actions-yarn@master
         with:
           args: run build-lib
+  publish:
+    needs: lint-and-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+          registry-url: https://registry.npmjs.org/
+      - run: npx yarn install
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
