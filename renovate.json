@@ -25,7 +25,7 @@
   "labels": ["renovate"],
   "prHourlyLimit": 4,
   "prConcurrentLimit": 15,
-  "rangeStrategy": "bump",
+  "rangeStrategy": "pin",
   "bumpVersion": null,
   "semanticCommits": true,
   "assignees": ["matepapp"],
