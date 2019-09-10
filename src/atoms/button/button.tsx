@@ -11,9 +11,10 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { Theme, theme } from '../../theme';
 import { StyleFunction } from '../../utils/types';
+import { Flex } from '../flex/flex';
+import { Loading } from '../icon/icon';
 
 const defaultStyle = ({
   theme: {
@@ -130,6 +131,7 @@ type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 
 interface Props {
   variant: ButtonVariant;
+  loading: boolean;
 }
 
 export type ButtonProps = Props &
@@ -155,8 +157,19 @@ const StyledButton = styled.button<ButtonProps>`
 `;
 
 // ts-ignore to fix type inconsistency because of color
-// @ts-ignore
-export const Button = (props: ButtonProps) => <StyledButton {...props} />;
+export const Button = (props: ButtonProps) =>
+  props.loading ? (
+    // @ts-ignore
+    <StyledButton {...props}>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Loading size="20px" />
+        Loading
+      </Flex>
+    </StyledButton>
+  ) : (
+    // @ts-ignore
+    <StyledButton {...props} />
+  );
 
 Button.defaultProps = {
   theme,
@@ -168,4 +181,5 @@ Button.defaultProps = {
   height: '40px',
   px: 3,
   py: 2,
+  loading: false,
 };

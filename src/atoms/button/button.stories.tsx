@@ -22,7 +22,6 @@ export const tertiary = () => (
 
 export const disabled = () => (
   <Fragment>
-    {/** TODO: Box it! */}
     <Button onClick={action('clicked')} disabled>
       {text('Primary button content', 'primary')}
     </Button>
@@ -34,3 +33,5 @@ export const disabled = () => (
     </Button>
   </Fragment>
 );
+
+export const loading = () => <Button loading>{text('Content', 'primary')}</Button>;
