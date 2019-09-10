@@ -10,6 +10,7 @@ export default { title: component('TextInput') };
 export const normal = () => <TextInput label="Favourite paper brand" placeholder="Tell me..." />;
 export const disabled = () => <TextInput label="Favourite paper brand" placeholder="IDC" disabled />;
 export const error = () => <TextInput label="Password" placeholder="Tell me..." error="Too short..." />;
+export const warning = () => <TextInput label="Password" placeholder="Tell me..." warning="Too short..." />;
 export const withText = () => (
   <TextInput label="Hand size" placeholder="Type here..." help="We handle this information privately" />
 );
@@ -39,6 +40,15 @@ export const withIconError = () => (
     placeholder="Sorry for being nosy..."
     icon={<EmailIcon />}
     error="Too short"
+  />
+);
+
+export const withIconWarning = () => (
+  <TextInput
+    label="Best skill with your nose"
+    placeholder="Sorry for being nosy..."
+    icon={<EmailIcon />}
+    warning="Too short"
   />
 );
 
@@ -72,6 +82,23 @@ export const withIconAndComplexHelpAndError = () => (
     label="Hand size"
     placeholder="Type here..."
     error="Error 1234"
+    help={
+      <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
+        This element is very{' '}
+        <Anchor fontSize="8px" href="/" color="primary.normal" fontWeight="bold">
+          complex.
+        </Anchor>
+      </Paragraph>
+    }
+    icon={<EmailIcon />}
+  />
+);
+
+export const withIconAndComplexHelpAndWarning = () => (
+  <TextInput
+    label="Hand size"
+    placeholder="Type here..."
+    warning="Warning 1234"
     help={
       <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
         This element is very{' '}

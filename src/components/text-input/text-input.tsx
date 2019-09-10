@@ -10,6 +10,7 @@ interface Props {
   help?: string | ReactNode;
   icon?: ReactNode;
   error?: string;
+  warning?: string;
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -20,6 +21,7 @@ interface StateProps {
   focused: boolean;
   disabled: boolean;
   error: boolean;
+  warning: boolean;
 }
 
 interface IconProps {
@@ -36,11 +38,13 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
   background-color: ${({ theme }: StyledInputContainerProps) => theme.colors.grey.light[4]};
   border-width: 1px;
   border-style: solid;
-  border-color: ${({ theme, error, disabled, focused }: StyledInputContainerProps) =>
+  border-color: ${({ theme, error, warning, disabled, focused }: StyledInputContainerProps) =>
     focused
       ? theme.colors.primary.normal
       : error
       ? theme.colors.error.normal
+      : warning
+      ? theme.colors.warning.normal
       : disabled
       ? theme.colors.grey.light[3]
       : theme.colors.grey.light[2]};
@@ -51,8 +55,14 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
   outline: none;
 
   & > input ~ div > svg {
-    fill: ${({ theme: { colors }, error, focused }: StyledInputContainerProps) =>
-      focused ? colors.primary.normal : error ? colors.error.normal : colors.grey.light[2]};
+    fill: ${({ theme: { colors }, error, warning, focused }: StyledInputContainerProps) =>
+      focused
+        ? colors.primary.normal
+        : error
+        ? colors.error.normal
+        : warning
+        ? colors.warning.normal
+        : colors.grey.light[2]};
   }
 
   & > input:disabled ~ div > svg {
@@ -101,6 +111,7 @@ export const TextInput = ({
   disabled,
   icon,
   error,
+  warning,
   value,
   onChange,
   ...boxProps
@@ -119,7 +130,14 @@ export const TextInput = ({
           {label}
         </Paragraph>
       )}
-      <StyledInputContainer focused={focused} disabled={disabled} theme={theme} error={!!error} icon={icon}>
+      <StyledInputContainer
+        focused={focused}
+        disabled={disabled}
+        theme={theme}
+        error={!!error}
+        warning={!!warning}
+        icon={icon}
+      >
         <StyledInput
           placeholder={placeholder}
           disabled={disabled}
@@ -134,6 +152,11 @@ export const TextInput = ({
       {error && (
         <Paragraph color={theme.colors.error.normal} paragraphSize="small" marginTop="8px">
           {error}
+        </Paragraph>
+      )}
+      {warning && (
+        <Paragraph color={theme.colors.warning.normal} paragraphSize="small" marginTop="8px">
+          {warning}
         </Paragraph>
       )}
       {isValidElement(help) ? (
