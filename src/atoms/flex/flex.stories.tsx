@@ -56,10 +56,10 @@ export const page = () => (
     <Box p={3} flex={['1 100%', '1 0 0']} order={[0, 0, 1]} backgroundColor="primary.dark">
       Aside 1
     </Box>
-    <Box p={3} flex={['1 100%', '1 0 0']} order={[0, 0, 3]} backgroundColor="accent.light">
+    <Box p={3} flex={['1 100%', '1 0 0']} order={[0, 0, 3]} backgroundColor="accent.4">
       Aside 2
     </Box>
-    <Box p={3} flex="1 100%" order={[0, 0, 4]} backgroundColor="accent.normal">
+    <Box p={3} flex="1 100%" order={[0, 0, 4]} backgroundColor="accent.5">
       Footer
     </Box>
   </Flex>

@@ -56,7 +56,7 @@ export const withIconAndComplexHelp = () => (
     label="Hand size"
     placeholder="Type here..."
     help={
-      <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
+      <Paragraph paragraphSize="small" marginTop="8px" color="neutral.2">
         This element is very{' '}
         <Anchor fontSize="8px" href="/" color="primary.normal" fontWeight="bold">
           complex.
@@ -73,7 +73,7 @@ export const withIconAndComplexHelpAndError = () => (
     placeholder="Type here..."
     error="Error 1234"
     help={
-      <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
+      <Paragraph paragraphSize="small" marginTop="8px" color="neutral.2">
         This element is very{' '}
         <Anchor fontSize="8px" href="/" color="primary.normal" fontWeight="bold">
           complex.

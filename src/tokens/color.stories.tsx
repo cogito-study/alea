@@ -18,10 +18,10 @@ export const primary = () => (
 export const accent = () => (
   <Fragment>
     <H3>Accent Light</H3>
-    <Box backgroundColor="accent.light" width="100px" height="100px" />
+    <Box backgroundColor="accent.4" width="100px" height="100px" />
     <H3>Accent Normal</H3>
-    <Box backgroundColor="accent.normal" width="100px" height="100px" />
+    <Box backgroundColor="accent.5" width="100px" height="100px" />
     <H3>Accent Dark</H3>
-    <Box backgroundColor="accent.dark" width="100px" height="100px" />
+    <Box backgroundColor="accent.6" width="100px" height="100px" />
   </Fragment>
 );

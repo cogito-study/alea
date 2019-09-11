@@ -37,86 +37,86 @@ const defaultStyle = ({ theme }: ButtonProps) => css`
 
 const primaryStyle = ({
   theme: {
-    colors: { accent, grey, transparent, white },
+    colors: { accent, neutral, transparent, white },
   },
 }: ButtonProps) => css`
-  background-color: ${accent.normal};
+  background-color: ${accent[5]};
   color: ${white};
 
   &:focus {
-    border-color: ${accent.dark};
+    border-color: ${accent[6]};
   }
 
   &:active {
-    border-color: ${accent.normal};
+    border-color: ${accent[5]};
   }
 
   &:disabled {
     color: ${white};
     border-color: ${transparent};
-    background-color: ${grey.light[2]};
+    background-color: ${neutral[3]};
   }
 
   &:hover:enabled {
-    background-color: ${accent.dark};
+    background-color: ${accent[6]};
   }
 `;
 
 const secondaryStyle = ({
   theme: {
-    colors: { accent, grey, transparent, white },
+    colors: { accent, neutral, transparent, white },
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  color: ${accent.normal};
-  border-color: ${accent.normal};
+  color: ${accent[5]};
+  border-color: ${accent[5]};
 
   &:focus {
-    border-color: ${accent.normal};
+    border-color: ${accent[5]};
     border-width: 3px;
   }
 
   &:active {
-    border-color: ${accent.dark};
-    color: ${accent.dark};
+    border-color: ${accent[6]};
+    color: ${accent[6]};
   }
 
   &:disabled {
-    color: ${grey.light[2]};
-    border-color: ${grey.light[2]};
+    color: ${neutral[3]};
+    border-color: ${neutral[3]};
     background-color: ${white};
   }
 
   &:hover:enabled {
-    border-color: ${accent.dark};
+    border-color: ${accent[6]};
   }
 `;
 
 const tertiaryStyle = ({
   theme: {
-    colors: { accent, grey, transparent, white },
+    colors: { accent, neutral, transparent, white },
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  color: ${accent.normal};
+  color: ${accent[5]};
 
   &:focus {
-    border-color: ${accent.light};
+    border-color: ${accent[4]};
   }
 
   &:active {
-    border-color: ${accent.light};
-    color: ${accent.dark};
+    border-color: ${accent[4]};
+    color: ${accent[6]};
   }
 
   &:disabled {
-    color: ${grey.light[2]};
+    color: ${neutral[3]};
     border-color: ${transparent};
     background-color: ${white};
   }
 
   &:hover:enabled {
-    border-color: ${accent.light};
+    border-color: ${accent[4]};
   }
 `;
 

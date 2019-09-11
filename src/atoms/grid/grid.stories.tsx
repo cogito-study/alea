@@ -104,19 +104,19 @@ export const responsive_layout = () => (
     ]}
     backgroundColor="primary.light"
   >
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="grey.light.4" gridArea="header">
+    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="header">
       Header
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="grey.light.4" gridArea="content">
+    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="content">
       Content
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="grey.light.4" gridArea="aside-1">
+    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="aside-1">
       Aside 1
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="grey.light.4" gridArea="aside-2">
+    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="aside-2">
       Aside 2
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="grey.light.4" gridArea="footer">
+    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="footer">
       Footer
     </Box>
   </Grid>
