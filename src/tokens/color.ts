@@ -1,6 +1,5 @@
 export const colors = {
   colors: {
-    brand: '#002B66',
     primary: {
       1: '#CCE1FF',
       2: '#99C4FF',
@@ -38,8 +37,8 @@ export const colors = {
     },
     information: {
       1: '#D6E0F5',
-      3: '#5C85D6',
-      5: '#142952',
+      3: '#85A3E0',
+      5: '#3366CC',
       7: '#1F3D7A',
       9: '#0A1429',
     },

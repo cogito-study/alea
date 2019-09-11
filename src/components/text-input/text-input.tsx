@@ -38,7 +38,7 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
   border-style: solid;
   border-color: ${({ theme, error, disabled, focused }: StyledInputContainerProps) =>
     focused
-      ? theme.colors.primary.normal
+      ? theme.colors.information[5]
       : error
       ? theme.colors.error.normal
       : disabled
@@ -52,7 +52,7 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
 
   & > input ~ div > svg {
     fill: ${({ theme: { colors }, error, focused }: StyledInputContainerProps) =>
-      focused ? colors.primary.normal : error ? colors.error.normal : colors.neutral[3]};
+      focused ? colors.information[5] : error ? colors.error.normal : colors.neutral[3]};
   }
 
   & > input:disabled ~ div > svg {

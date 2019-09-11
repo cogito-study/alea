@@ -7,7 +7,7 @@ export default { title: token('Border') };
 export const border_0 = () => (
   <>
     <H2>Border 0</H2>
-    <Box width="100px" height="100px" border={0} borderColor="accent.5" bg="primary.normal" />
+    <Box width="100px" height="100px" border={0} borderColor="accent.5" bg="primary.4" />
   </>
 );
 

@@ -6,36 +6,36 @@ import { Grid } from './grid';
 export default { title: atom('Grid') };
 
 export const simple = () => (
-  <Grid gridGap={3} gridTemplateColumns="auto auto auto" backgroundColor="primary.light">
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
+  <Grid gridGap={3} gridTemplateColumns="auto auto auto" backgroundColor="primary.2">
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
   </Grid>
 );
 export const sizes = () => (
-  <Grid gridGap={3} gridTemplateColumns="50px 1fr 1fr" gridTemplateRows="4fr 1fr 1fr" backgroundColor="primary.light">
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
+  <Grid gridGap={3} gridTemplateColumns="50px 1fr 1fr" gridTemplateRows="4fr 1fr 1fr" backgroundColor="primary.2">
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
   </Grid>
 );
 
 export const colspan = () => (
-  <Grid gridGap={2} gridTemplateColumns="auto auto auto" backgroundColor="primary.light">
-    <Box p={3} backgroundColor="primary.dark" gridColumn="1 / 3" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
+  <Grid gridGap={2} gridTemplateColumns="auto auto auto" backgroundColor="primary.2">
+    <Box p={3} backgroundColor="primary.6" gridColumn="1 / 3" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
   </Grid>
 );
 
@@ -44,19 +44,19 @@ export const rowspan = () => (
     gridGap={2}
     gridTemplateColumns="auto auto auto auto"
     gridTemplateRows="auto auto auto"
-    backgroundColor="primary.light"
+    backgroundColor="primary.2"
   >
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box backgroundColor="primary.dark" gridRow="1 / 3" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box backgroundColor="primary.6" gridRow="1 / 3" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
   </Grid>
 );
 export const complex = () => (
@@ -64,19 +64,19 @@ export const complex = () => (
     gridGap={2}
     gridTemplateColumns="auto auto auto auto"
     gridTemplateRows="auto auto auto"
-    backgroundColor="primary.light"
+    backgroundColor="primary.2"
   >
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box backgroundColor="primary.dark" gridRow="1 / 4" gridColumn="1 / 3" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" gridRow="1 / 6" gridColumn="4" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
-    <Box p={3} backgroundColor="primary.dark" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box backgroundColor="primary.6" gridRow="1 / 4" gridColumn="1 / 3" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" gridRow="1 / 6" gridColumn="4" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
+    <Box p={3} backgroundColor="primary.6" />
   </Grid>
 );
 export const responsive_layout = () => (
@@ -102,21 +102,21 @@ export const responsive_layout = () => (
       'footer footer footer footer'
     `,
     ]}
-    backgroundColor="primary.light"
+    backgroundColor="primary.2"
   >
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="header">
+    <Box p={3} textAlign="center" backgroundColor="primary.6" color="neutral.5" gridArea="header">
       Header
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="content">
+    <Box p={3} textAlign="center" backgroundColor="primary.6" color="neutral.5" gridArea="content">
       Content
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="aside-1">
+    <Box p={3} textAlign="center" backgroundColor="primary.6" color="neutral.5" gridArea="aside-1">
       Aside 1
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="aside-2">
+    <Box p={3} textAlign="center" backgroundColor="primary.6" color="neutral.5" gridArea="aside-2">
       Aside 2
     </Box>
-    <Box p={3} textAlign="center" backgroundColor="primary.dark" color="neutral.5" gridArea="footer">
+    <Box p={3} textAlign="center" backgroundColor="primary.6" color="neutral.5" gridArea="footer">
       Footer
     </Box>
   </Grid>
