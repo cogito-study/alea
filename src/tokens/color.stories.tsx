@@ -1,62 +1,35 @@
-import React from 'react';
-import { Box, H3, Flex } from '../atoms';
-import { token } from '../utils/structure';
+import React, { Fragment } from 'react';
+import { Box, Flex, H2, H4 } from '../atoms';
 import { theme } from '../theme';
+import { token } from '../utils/structure';
 
 export default { title: token('Color') };
 
 const { colors } = theme;
 
-const cucc = Object.keys(colors)
-  .map((name) => {
-    return {
-      [name]: () => (
+const allColors = () => (
+  <Flex flexWrap="wrap" flexDirection="column">
+    {Object.keys(colors).map((name, index) => (
+      <Fragment key={index}>
+        <H2>{name}</H2>
         <Flex flexWrap="wrap">
-          {colors[name] ? (
+          {typeof colors[name] !== 'string' ? (
             Object.keys(colors[name]).map((colorIndex) => (
-              <Box key={colorIndex} mr={5}>
-                <H3>
-                  {name} {colorIndex}
-                </H3>
+              <Box key={colorIndex} mr={5} textAlign="center">
                 <Box backgroundColor={`${name}.${colorIndex}`} width="100px" height="100px" borderRadius="10px" />
+                <H4>{colorIndex}</H4>
               </Box>
             ))
           ) : (
-            <Box>
-              <H3>{name}</H3>
+            <Box textAlign="center">
               <Box backgroundColor={`${name}`} width="100px" height="100px" borderRadius="10px" />
+              <H4>{name}</H4>
             </Box>
           )}
         </Flex>
-      ),
-    };
-  })
-  .reduce((colorComponent, result) => {
-    return { ...colorComponent, ...result };
-  }, {});
-
-export { cucc };
-
-const primary = () => (
-  <Flex flexWrap="wrap">
-    {[...Array(9)].map((_, colorIndex) => (
-      <Box key={colorIndex + 1} mr={5}>
-        <H3>Primary {colorIndex + 1}</H3>
-        <Box backgroundColor={`primary.${colorIndex + 1}`} width="100px" height="100px" borderRadius="10px" />
-      </Box>
+      </Fragment>
     ))}
   </Flex>
 );
 
-const accent = () => (
-  <Flex flexWrap="wrap">
-    {[...Array(9)].map((_, colorIndex) => (
-      <Box key={colorIndex + 1} mr={5}>
-        <H3>Accent {colorIndex + 1}</H3>
-        <Box backgroundColor={`accent.${colorIndex + 1}`} width="100px" height="100px" borderRadius="10px" />
-      </Box>
-    ))}
-  </Flex>
-);
-
-export { accent, primary };
+export { allColors };
