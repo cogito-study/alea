@@ -9,28 +9,28 @@ export const plain = () => <Anchor href="/">Click me!</Anchor>;
 export const disabled = () => <Anchor>Click me!</Anchor>;
 export const colorful = () => (
   <Flex flexDirection="column">
-    <Anchor mb={2} href="/" color="primary.normal" hoverColor="primary.dark">
+    <Anchor mb={2} href="/" color="primary.4" hoverColor="primary.8">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="primary.light" hoverColor="primary.normal">
+    <Anchor mb={2} href="/" color="primary.3" hoverColor="primary.4">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="error.normal" hoverColor="error.dark">
+    <Anchor mb={2} href="/" color="error.5" hoverColor="error.7">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="grey.dark.1" hoverColor="grey.dark.4">
+    <Anchor mb={2} href="/" color="neutral.7" hoverColor="neutral.9">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="primary.normal" hoverColor="primary.dark" fontWeight="bold">
+    <Anchor mb={2} href="/" color="primary.5" hoverColor="primary.7" fontWeight="bold">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="primary.light" hoverColor="primary.normal" fontWeight="bold">
+    <Anchor mb={2} href="/" color="primary.3" hoverColor="primary.5" fontWeight="bold">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="error.normal" hoverColor="error.dark" fontWeight="bold">
+    <Anchor mb={2} href="/" color="error.5" hoverColor="error.7" fontWeight="bold">
       Click me!
     </Anchor>
-    <Anchor mb={2} href="/" color="grey.dark.1" hoverColor="grey.dark.4" fontWeight="bold">
+    <Anchor mb={2} href="/" color="neutral.7" hoverColor="neutral.9" fontWeight="bold">
       Click me!
     </Anchor>
   </Flex>
