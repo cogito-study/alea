@@ -73,7 +73,7 @@ export const withIconAndComplexHelpAndError = () => (
     placeholder="Type here..."
     error="Error 1234"
     help={
-      <Paragraph paragraphSize="small" marginTop="8px" color="neutral.2">
+      <Paragraph paragraphSize="small" marginTop="8px" color="neutral.4">
         This element is very{' '}
         <Anchor fontSize="8px" href="/" color="primary.4" fontWeight="bold">
           complex.

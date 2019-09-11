@@ -66,6 +66,6 @@ export const EmailIcon = (props: IconProps) => {
 EmailIcon.defaultProps = {
   theme,
   size: 'iconSmall',
-  color: 'primary4',
+  color: 'primary.4',
   variant: 'fill',
 };

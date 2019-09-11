@@ -40,10 +40,10 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
     focused
       ? theme.colors.information[5]
       : error
-      ? theme.colors.error.normal
+      ? theme.colors.error[5]
       : disabled
-      ? theme.colors.neutral[5]
-      : theme.colors.neutral[3]};
+      ? theme.colors.neutral[2]
+      : theme.colors.neutral[5]};
 
   font-family: ${({ theme }: StyledInputContainerProps) => theme.fonts.paragraph};
   max-width: 300px;
@@ -52,7 +52,7 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
 
   & > input ~ div > svg {
     fill: ${({ theme: { colors }, error, focused }: StyledInputContainerProps) =>
-      focused ? colors.information[5] : error ? colors.error.normal : colors.neutral[3]};
+      focused ? colors.information[5] : error ? colors.error[5] : colors.neutral[3]};
   }
 
   & > input:disabled ~ div > svg {
@@ -69,7 +69,9 @@ const StyledInput = styled.input<StyledInputProps>`
   background-color: ${({ theme }: StyledInputProps) => theme.colors.neutral[0]};
   padding: 0px;
   padding-left: 8px;
+  margin-right: 2px;
   font-size: ${({ theme }: StyledInputProps) => theme.fontSizes[1]};
+  flex-grow: 1;
 
   ::placeholder {
     color: ${({ theme }: StyledInputProps) => theme.colors.neutral[3]};
@@ -82,7 +84,7 @@ const StyledInput = styled.input<StyledInputProps>`
       cursor: not-allowed;
     }
     ::placeholder {
-      color: ${({ theme }: StyledInputProps) => theme.colors.neutral[5]};
+      color: ${({ theme }: StyledInputProps) => theme.colors.neutral[2]};
     }
   }
 `;
@@ -132,7 +134,7 @@ export const TextInput = ({
         {icon && <IconContainer>{icon}</IconContainer>}
       </StyledInputContainer>
       {error && (
-        <Paragraph color={theme.colors.error.normal} paragraphSize="small" marginTop="8px">
+        <Paragraph color={theme.colors.error[5]} paragraphSize="small" marginTop="8px">
           {error}
         </Paragraph>
       )}

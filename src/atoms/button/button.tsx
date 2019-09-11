@@ -15,12 +15,18 @@ import {
 import { Theme, theme } from '../../theme';
 import { StyleFunction } from '../../utils/types';
 
-const defaultStyle = ({ theme }: ButtonProps) => css`
+const defaultStyle = ({
+  theme: {
+    colors: { primary },
+  },
+}: ButtonProps) => css`
   border-width: 2px;
   border-style: solid;
   border-color: ${theme.colors.transparent};
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  font-weight: 600;
+  color: ${primary[8]};
 
   &:hover {
     cursor: pointer;
@@ -37,22 +43,21 @@ const defaultStyle = ({ theme }: ButtonProps) => css`
 
 const primaryStyle = ({
   theme: {
-    colors: { accent, neutral, transparent, white },
+    colors: { accent, neutral, transparent },
   },
 }: ButtonProps) => css`
   background-color: ${accent[5]};
-  color: ${white};
 
   &:focus {
-    border-color: ${accent[6]};
+    border-color: ${accent[8]};
   }
 
   &:active {
-    border-color: ${accent[5]};
+    border-color: ${accent[8]};
   }
 
   &:disabled {
-    color: ${white};
+    color: ${neutral[0]};
     border-color: ${transparent};
     background-color: ${neutral[3]};
   }
@@ -68,17 +73,12 @@ const secondaryStyle = ({
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  color: ${accent[5]};
-  border-color: ${accent[5]};
+  border-color: ${accent[6]};
 
   &:focus {
-    border-color: ${accent[5]};
-    border-width: 3px;
-  }
-
-  &:active {
     border-color: ${accent[6]};
-    color: ${accent[6]};
+    background-color: ${white};
+    border-width: 3px;
   }
 
   &:disabled {
@@ -88,7 +88,7 @@ const secondaryStyle = ({
   }
 
   &:hover:enabled {
-    border-color: ${accent[6]};
+    background-color: ${accent[5]};
   }
 `;
 
@@ -98,7 +98,7 @@ const tertiaryStyle = ({
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  color: ${accent[5]};
+  color: ${accent[6]};
 
   &:focus {
     border-color: ${accent[4]};
@@ -116,7 +116,7 @@ const tertiaryStyle = ({
   }
 
   &:hover:enabled {
-    border-color: ${accent[4]};
+    border-color: ${accent[6]};
   }
 `;
 
