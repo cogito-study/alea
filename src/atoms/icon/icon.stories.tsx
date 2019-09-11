@@ -16,11 +16,11 @@ export const email = () => (
 
 export const loading = () => (
   <Flex alignItems="center">
-    {/* <Loading size="16px" />
+    <Loading size="16px" />
     <Loading size="32px" />
     <Loading size="64px" />
     <Loading size="128px" />
-    <Loading size="256" /> */}
+    <Loading size="256" />
     <Loading size="512px" />
   </Flex>
 );

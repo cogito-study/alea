@@ -34,4 +34,8 @@ export const disabled = () => (
   </Fragment>
 );
 
-export const loading = () => <Button loading>{text('Content', 'primary')}</Button>;
+export const loading = () => (
+  <Button loading disabled>
+    {text('Content', 'primary')}
+  </Button>
+);

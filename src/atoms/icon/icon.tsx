@@ -82,14 +82,14 @@ export const Loading: FunctionComponent<LoadingProps> = ({ size }) => {
         fill="none"
         r="40"
         strokeWidth="15"
-        stroke="#00997F"
+        stroke="#FFFFFF"
         strokeDasharray="62.83185307179586 62.83185307179586"
         transform="rotate(0 50 50)"
       >
         <animate
           attributeName="r"
           begin="0s"
-          dur="3s"
+          dur="2s"
           values={`40;29;40`}
           keyTimes="0;0.45;1"
           repeatCount="indefinite"
@@ -100,7 +100,7 @@ export const Loading: FunctionComponent<LoadingProps> = ({ size }) => {
           calcMode="linear"
           values="0 50 50;360 50 50"
           keyTimes="0;1"
-          dur="3s"
+          dur="2s"
           begin="0s"
           repeatCount="indefinite"
         ></animateTransform>
