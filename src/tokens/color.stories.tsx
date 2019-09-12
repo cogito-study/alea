@@ -24,7 +24,7 @@ const allColors = () => (
               ))
             ) : (
               <Box textAlign="center">
-                <Box backgroundColor={`${name}`} width="100px" height="100px" borderRadius="10px" />
+                <Box backgroundColor={name} width="100px" height="100px" borderRadius="10px" />
                 <H4>{name}</H4>
               </Box>
             )}
