@@ -15,12 +15,18 @@ import {
 import { Theme, theme } from '../../theme';
 import { StyleFunction } from '../../utils/types';
 
-const defaultStyle = ({ theme }: ButtonProps) => css`
+const defaultStyle = ({
+  theme: {
+    colors: { primary },
+  },
+}: ButtonProps) => css`
   border-width: 2px;
   border-style: solid;
   border-color: ${theme.colors.transparent};
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  font-weight: 600;
+  color: ${primary[8]};
 
   &:hover {
     cursor: pointer;
@@ -37,86 +43,80 @@ const defaultStyle = ({ theme }: ButtonProps) => css`
 
 const primaryStyle = ({
   theme: {
-    colors: { accent, grey, transparent, white },
+    colors: { accent, neutral, transparent },
   },
 }: ButtonProps) => css`
-  background-color: ${accent.normal};
-  color: ${white};
+  background-color: ${accent[5]};
 
   &:focus {
-    border-color: ${accent.dark};
+    border-color: ${accent[8]};
   }
 
   &:active {
-    border-color: ${accent.normal};
+    border-color: ${accent[8]};
   }
 
   &:disabled {
-    color: ${white};
+    color: ${neutral[0]};
     border-color: ${transparent};
-    background-color: ${grey.light[2]};
+    background-color: ${neutral[3]};
   }
 
   &:hover:enabled {
-    background-color: ${accent.dark};
+    background-color: ${accent[6]};
   }
 `;
 
 const secondaryStyle = ({
   theme: {
-    colors: { accent, grey, transparent, white },
+    colors: { accent, neutral, transparent, white },
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  color: ${accent.normal};
-  border-color: ${accent.normal};
+  border-color: ${accent[5]};
 
   &:focus {
-    border-color: ${accent.normal};
+    border-color: ${accent[6]};
+    background-color: ${white};
     border-width: 3px;
   }
 
-  &:active {
-    border-color: ${accent.dark};
-    color: ${accent.dark};
-  }
-
   &:disabled {
-    color: ${grey.light[2]};
-    border-color: ${grey.light[2]};
+    color: ${neutral[3]};
+    border-color: ${neutral[3]};
     background-color: ${white};
   }
 
   &:hover:enabled {
-    border-color: ${accent.dark};
+    background-color: ${accent[5]};
   }
 `;
 
 const tertiaryStyle = ({
   theme: {
-    colors: { accent, grey, transparent, white },
+    colors: { accent, neutral, transparent, white },
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  color: ${accent.normal};
+  color: ${accent[6]};
 
   &:focus {
-    border-color: ${accent.light};
+    border-color: ${accent[4]};
   }
 
   &:active {
-    border-color: ${accent.light};
-    color: ${accent.dark};
+    border-color: ${accent[4]};
+    color: ${accent[6]};
   }
 
   &:disabled {
-    color: ${grey.light[2]};
+    color: ${neutral[3]};
     border-color: ${transparent};
     background-color: ${white};
   }
 
   &:hover:enabled {
-    border-color: ${accent.light};
+    border-color: ${accent[6]};
   }
 `;
 

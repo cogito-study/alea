@@ -33,17 +33,17 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
   justify-content: flex-end;
   flex-direction: row-reverse;
 
-  background-color: ${({ theme }: StyledInputContainerProps) => theme.colors.grey.light[4]};
+  background-color: ${({ theme }: StyledInputContainerProps) => theme.colors.neutral[0]};
   border-width: 1px;
   border-style: solid;
   border-color: ${({ theme, error, disabled, focused }: StyledInputContainerProps) =>
     focused
-      ? theme.colors.primary.normal
+      ? theme.colors.information[5]
       : error
-      ? theme.colors.error.normal
+      ? theme.colors.error[5]
       : disabled
-      ? theme.colors.grey.light[3]
-      : theme.colors.grey.light[2]};
+      ? theme.colors.neutral[2]
+      : theme.colors.neutral[5]};
 
   font-family: ${({ theme }: StyledInputContainerProps) => theme.fonts.paragraph};
   max-width: 300px;
@@ -52,11 +52,11 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
 
   & > input ~ div > svg {
     fill: ${({ theme: { colors }, error, focused }: StyledInputContainerProps) =>
-      focused ? colors.primary.normal : error ? colors.error.normal : colors.grey.light[2]};
+      focused ? colors.information[5] : error ? colors.error[5] : colors.neutral[3]};
   }
 
   & > input:disabled ~ div > svg {
-    fill: ${({ theme: { colors } }: StyledInputContainerProps) => colors.grey.light[3]};
+    fill: ${({ theme: { colors } }: StyledInputContainerProps) => colors.neutral[5]};
   }
 `;
 
@@ -64,25 +64,27 @@ export type StyledInputProps = ThemeProps<Theme> & HTMLProps<HTMLInputElement>;
 
 const StyledInput = styled.input<StyledInputProps>`
   border: none;
-  color: ${({ theme }: StyledInputProps) => theme.colors.grey.dark[2]};
+  color: ${({ theme }: StyledInputProps) => theme.colors.neutral[9]};
   outline: none;
-  background-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[4]};
+  background-color: ${({ theme }: StyledInputProps) => theme.colors.neutral[0]};
   padding: 0px;
   padding-left: 8px;
+  margin-right: 2px;
   font-size: ${({ theme }: StyledInputProps) => theme.fontSizes[1]};
+  flex-grow: 1;
 
   ::placeholder {
-    color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[2]};
+    color: ${({ theme }: StyledInputProps) => theme.colors.neutral[3]};
     opacity: 1; /* Firefox */
   }
 
   :disabled {
-    border-color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[3]};
+    border-color: ${({ theme }: StyledInputProps) => theme.colors.neutral[5]};
     :hover {
       cursor: not-allowed;
     }
     ::placeholder {
-      color: ${({ theme }: StyledInputProps) => theme.colors.grey.light[3]};
+      color: ${({ theme }: StyledInputProps) => theme.colors.neutral[2]};
     }
   }
 `;
@@ -115,7 +117,7 @@ export const TextInput = ({
   return (
     <Box {...boxProps}>
       {label && (
-        <Paragraph color="grey.dark.2" marginBottom="4px">
+        <Paragraph color="neutral.9" marginBottom="4px">
           {label}
         </Paragraph>
       )}
@@ -132,14 +134,14 @@ export const TextInput = ({
         {icon && <IconContainer>{icon}</IconContainer>}
       </StyledInputContainer>
       {error && (
-        <Paragraph color={theme.colors.error.normal} paragraphSize="small" marginTop="8px">
+        <Paragraph color={theme.colors.error[5]} paragraphSize="small" marginTop="8px">
           {error}
         </Paragraph>
       )}
       {isValidElement(help) ? (
         help
       ) : (
-        <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
+        <Paragraph paragraphSize="small" marginTop="8px" color="neutral.4">
           {help}
         </Paragraph>
       )}

@@ -1,27 +1,38 @@
 import React, { Fragment } from 'react';
-import { Box, H3 } from '../atoms';
+import { Box, Flex, H2, H4 } from '../atoms';
+import { theme } from '../theme';
 import { token } from '../utils/structure';
 
 export default { title: token('Color') };
 
-export const primary = () => (
-  <Fragment>
-    <H3>Primary Light</H3>
-    <Box backgroundColor="primary.light" width="100px" height="100px" />
-    <H3>Primary Normal</H3>
-    <Box backgroundColor="primary.normal" width="100px" height="100px" />
-    <H3>Primary Dark</H3>
-    <Box backgroundColor="primary.dark" width="100px" height="100px" />
-  </Fragment>
+const { colors } = theme;
+
+const allColors = () => (
+  <Flex flexWrap="wrap" flexDirection="column">
+    {Object.entries(colors).map((color, index) => {
+      const [name, colorObject] = color;
+      return (
+        <Fragment key={index}>
+          <H2>{name}</H2>
+          <Flex flexWrap="wrap">
+            {typeof colorObject !== 'string' ? (
+              Object.keys(colorObject).map((colorIndex) => (
+                <Box key={colorIndex} mr={5} textAlign="center">
+                  <Box backgroundColor={`${name}.${colorIndex}`} width="100px" height="100px" borderRadius="10px" />
+                  <H4>{colorIndex}</H4>
+                </Box>
+              ))
+            ) : (
+              <Box textAlign="center">
+                <Box backgroundColor={name} width="100px" height="100px" borderRadius="10px" />
+                <H4>{name}</H4>
+              </Box>
+            )}
+          </Flex>
+        </Fragment>
+      );
+    })}
+  </Flex>
 );
 
-export const accent = () => (
-  <Fragment>
-    <H3>Accent Light</H3>
-    <Box backgroundColor="accent.light" width="100px" height="100px" />
-    <H3>Accent Normal</H3>
-    <Box backgroundColor="accent.normal" width="100px" height="100px" />
-    <H3>Accent Dark</H3>
-    <Box backgroundColor="accent.dark" width="100px" height="100px" />
-  </Fragment>
-);
+export { allColors };

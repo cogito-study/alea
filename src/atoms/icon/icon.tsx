@@ -37,7 +37,7 @@ const Icon = ({ filledIcon, outlinedIcon, ...props }: IconPropsWithIcons) => {
 Icon.defaultProps = {
   theme,
   size: 'iconSmall',
-  color: 'primary.normal',
+  color: 'primary.4',
   variant: 'fill',
 };
 
@@ -66,6 +66,6 @@ export const EmailIcon = (props: IconProps) => {
 EmailIcon.defaultProps = {
   theme,
   size: 'iconSmall',
-  color: 'primary.normal',
+  color: 'primary.4',
   variant: 'fill',
 };

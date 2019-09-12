@@ -10,7 +10,7 @@ export const theme = () => {
   const theme = useTheme();
 
   return (
-    <Box bg="accent.normal" color="white">
+    <Box bg="accent.5" color="white">
       {JSON.stringify(theme)}
     </Box>
   );

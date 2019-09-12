@@ -25,35 +25,35 @@ const styledProps = compose(
 
 const defaultStyle = ({
   theme: {
-    colors: { accent, grey },
+    colors: { accent, neutral },
   },
   color,
   hoverColor,
 }: AnchorProps) => css`
-  color: ${grey.light['2']};
+  color: ${neutral[3]};
   text-decoration: none;
   cursor: not-allowed;
 
   :link,
   :visited {
-    color: ${({ color }: AnchorProps) => themeGet(`colors.${color}`, accent.normal)};
+    color: ${({ color }: AnchorProps) => themeGet(`colors.${color}`, accent[6])};
     text-decoration: none;
     cursor: pointer;
   }
 
   :hover {
-    color: ${({ href }: AnchorProps) => (!href ? grey.light['2'] : themeGet(`colors.${hoverColor}`, accent.dark))};
+    color: ${({ href }: AnchorProps) => (!href ? neutral[3] : themeGet(`colors.${hoverColor}`, accent[8]))};
     text-decoration: none;
   }
 
   :focus {
-    color: ${({ href }: AnchorProps) => (!href ? grey.light['2'] : themeGet(`colors.${color}`, accent.normal))};
+    color: ${({ href }: AnchorProps) => (!href ? neutral[3] : themeGet(`colors.${color}`, accent[6]))};
     text-decoration: underline;
     outline: none;
   }
 
   :active {
-    color: ${({ href }: AnchorProps) => (!href ? grey.light['2'] : themeGet(`colors.${color}`, accent.normal))};
+    color: ${({ href }: AnchorProps) => (!href ? neutral[3] : themeGet(`colors.${color}`, accent[6]))};
     text-decoration: none;
   }
 `;
