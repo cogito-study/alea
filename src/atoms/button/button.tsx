@@ -73,7 +73,7 @@ const secondaryStyle = ({
   },
 }: ButtonProps) => css`
   background-color: ${transparent};
-  border-color: ${accent[6]};
+  border-color: ${accent[5]};
 
   &:focus {
     border-color: ${accent[6]};
