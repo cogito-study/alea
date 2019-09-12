@@ -56,7 +56,7 @@ export const withIconAndComplexHelp = () => (
     label="Hand size"
     placeholder="Type here..."
     help={
-      <Paragraph paragraphSize="small" marginTop="8px" color="neutral.2">
+      <Paragraph paragraphSize="small" marginTop="8px" color="neutral.4">
         This element is very{' '}
         <Anchor fontSize="8px" href="/" color="primary.4" fontWeight="bold">
           complex.
