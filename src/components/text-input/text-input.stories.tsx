@@ -58,7 +58,7 @@ export const withIconAndComplexHelp = () => (
     help={
       <Paragraph paragraphSize="small" marginTop="8px" color="neutral.4">
         This element is very{' '}
-        <Anchor fontSize="8px" href="/" color="primary.4" fontWeight="bold">
+        <Anchor fontSize="8px" href="/" color="accent.6" fontWeight="bold">
           complex.
         </Anchor>
       </Paragraph>
