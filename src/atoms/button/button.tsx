@@ -197,6 +197,6 @@ Button.defaultProps = {
   px: 3,
   py: 2,
   loading: false,
-  icon: 'email',
+  icon: '',
   iconColor: 'primary.8',
 };
