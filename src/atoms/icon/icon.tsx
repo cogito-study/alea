@@ -33,4 +33,5 @@ export const Icon = ({ option, ...props }: IconProps) => {
 Icon.defaultProps = {
   theme,
   color: 'primary.4',
+  width: '24px',
 };

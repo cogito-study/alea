@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { TextInput } from './text-input';
 import { component } from '../../utils/structure';
 import { action } from '@storybook/addon-actions';
-import { EmailIcon } from '../../atoms/icon/icon';
+import { Icon } from '../../atoms/icon/icon';
 import { Paragraph, Anchor } from '../../atoms';
 
 export default { title: component('TextInput') };
@@ -26,18 +26,23 @@ export const withOnChange = () => {
   );
 };
 export const withIcon = () => (
-  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} />
+  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<Icon option="email" />} />
 );
 
 export const withIconDisabled = () => (
-  <TextInput label="Best skill with your nose" placeholder="Sorry for being nosy..." icon={<EmailIcon />} disabled />
+  <TextInput
+    label="Best skill with your nose"
+    placeholder="Sorry for being nosy..."
+    icon={<Icon option="email" />}
+    disabled
+  />
 );
 
 export const withIconError = () => (
   <TextInput
     label="Best skill with your nose"
     placeholder="Sorry for being nosy..."
-    icon={<EmailIcon />}
+    icon={<Icon option="email" />}
     error="Too short"
   />
 );
@@ -47,7 +52,7 @@ export const withIconAndText = () => (
     label="Hand size"
     placeholder="Type here..."
     help="We handle this information privately"
-    icon={<EmailIcon />}
+    icon={<Icon option="email" />}
   />
 );
 
@@ -63,7 +68,7 @@ export const withIconAndComplexHelp = () => (
         </Anchor>
       </Paragraph>
     }
-    icon={<EmailIcon />}
+    icon={<Icon option="email" />}
   />
 );
 
@@ -80,6 +85,6 @@ export const withIconAndComplexHelpAndError = () => (
         </Anchor>
       </Paragraph>
     }
-    icon={<EmailIcon />}
+    icon={<Icon option="email" />}
   />
 );
