@@ -177,7 +177,7 @@ export const Button = (props: ButtonProps) =>
     // @ts-ignore
     <StyledButton {...props} disabled>
       <Flex alignItems="center" justifyContent="space-between">
-        <Icon option="loading" width="20px" color="#FFFFFF" />
+        <Icon option="loading" width="20px" color="white" />
         Loading
       </Flex>
     </StyledButton>

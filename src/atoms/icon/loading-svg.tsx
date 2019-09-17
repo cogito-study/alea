@@ -1,3 +1,5 @@
+// @ts-ignore
+import { themeGet } from '@styled-system/theme-get';
 import React, { FunctionComponent } from 'react';
 import { IconProps, StyledIcon } from './icon';
 
@@ -11,7 +13,7 @@ export const LoadingSVG: FunctionComponent<IconProps> = (props: IconProps) => {
         fill="none"
         r="40"
         strokeWidth="15"
-        stroke={props.color}
+        stroke={themeGet(`colors.${props.color}`, props.color)(props)}
         strokeDasharray="62.83185307179586 62.83185307179586"
         transform="rotate(0 50 50)"
       >
