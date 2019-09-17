@@ -3,7 +3,6 @@ import { text } from '@storybook/addon-knobs';
 import React, { Fragment } from 'react';
 import { atom } from '../../utils/structure';
 import { Button } from './button';
-import { Icon } from '../icon/icon';
 
 export default { title: atom('Button') };
 
@@ -38,5 +37,7 @@ export const disabled = () => (
 export const loading = () => <Button loading />;
 
 export const withIcon = () => (
-  <Button icon={<Icon option="email" width="20px" color="primary.8" />}>{text('Content', 'Send')}</Button>
+  <Button icon="email" iconColor="primary.8">
+    {text('Content', 'Send')}
+  </Button>
 );

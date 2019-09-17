@@ -1,4 +1,4 @@
-import React, { HTMLProps, ReactNode } from 'react';
+import React, { HTMLProps } from 'react';
 import styled, { css, ThemeProps } from 'styled-components';
 import {
   color,
@@ -14,7 +14,7 @@ import {
 import { Theme, theme } from '../../theme';
 import { StyleFunction } from '../../utils/types';
 import { Flex } from '../flex/flex';
-import { Icon } from '../icon/icon';
+import { Icon, IconOptions } from '../icon/icon';
 import { Paragraph } from '../paragraph/paragraph';
 
 const defaultStyle = ({
@@ -133,7 +133,8 @@ type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 interface Props {
   variant: ButtonVariant;
   loading: boolean;
-  icon: ReactNode;
+  icon: IconOptions;
+  iconColor: string;
 }
 
 export type ButtonProps = Props &
@@ -162,11 +163,11 @@ const StyledButton = styled.button<ButtonProps>`
 export const Button = (props: ButtonProps) =>
   props.icon ? (
     // @ts-ignore
-    <StyledButton {...props}>
+    <StyledButton {...props} py={1}>
       <Flex alignItems="center">
-        {props.icon}
+        <Icon option={props.icon} color={props.iconColor} width="25px" />
         <Flex flexGrow={1} justifyContent="center">
-          <Paragraph fontWeight="bold" lineHeight="0" pl={3}>
+          <Paragraph fontWeight="bold" lineHeight="0" pl={2} pr={1}>
             {props.children}
           </Paragraph>
         </Flex>
@@ -196,5 +197,6 @@ Button.defaultProps = {
   px: 3,
   py: 2,
   loading: false,
-  icon: '',
+  icon: 'email',
+  iconColor: 'primary.8',
 };
