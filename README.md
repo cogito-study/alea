@@ -1,44 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# alea
 
-## Available Scripts
+![https://img.shields.io/npm/v/@cogito-study/alea](https://img.shields.io/npm/v/@cogito-study/alea) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) ![https://img.shields.io/github/license/mashape/apistatus.svg](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-In the project directory, you can run:
+## What?
 
-### `npm start`
+The design system and building blocks of every Cogito product. 🎲
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**alea:** latin phrase for _dice, cube_
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+> Alea iacta est ("The die is cast") is a variation of a Latin phrase attributed by Suetonius to Julius Caesar on January 10, 49 B.C. as he led his army across the Rubicon river in Northern Italy.
 
-### `npm test`
+## Why?
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There are a **lot of** great React UI component libraries, such as [Material UI](https://material-ui.com), [Ant Design](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwie5e6f-trkAhUkxMQBHTjOD_EQFjAAegQIBxAC&url=https%3A%2F%2Fant.design%2Fdocs%2Freact%2Fintroduce&usg=AOvVaw29Ajs22mg1xqwr3Sl0aYod), [Semantic UI](https://react.semantic-ui.com/), [Grommet](https://v2.grommet.io/) and the list goes on. Although we could find a proper one which fits our custom design system without making any compromise.
 
-### `npm run build`
+On the other hand based on our early experiences we struggled a lot with component development within our application, so we wanted to create an isolated environment where we can iterate fast on component building, styling and visual testing. With the success of popular component documentation and development tools ([Storybook](http://storybook.js.org), [Docz](http://docz.site), [Styleguidist](https://react-styleguidist.js.org/)) we found our solution.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Goal
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Starting from scratch is always a hard decision, but our goal is to create and maintain a single source of truth of our design system and our [web app](https://app.cogito.study) component library. We don't want to create another popular open source UIKit. Since we only depend on open source projects so it was a no brainer to make our library open as well.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> ⚠️ It's still a heavily working progress library and only fits our custom needs.
 
-### `npm run eject`
+## Built With
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [React](http://reactjs.org) with [create-react-app](https://github.com/facebook/create-react-app)
+- [TypeScript](http://www.typescriptlang.org)
+- [styled components](https://www.styled-components.com)
+- [styled-system](http://styled-system.com)
+- [Storybook](http://storybook.js.org)
+- [ESLint](http://eslint.org)
+- [stylelint](https://stylelint.io)
+- [Prettier](http://prettier.io)
+- [renovatebot](http://renovatebot.com)
+- [Github Actions](https://github.com/features/actions)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Inspired By
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Github's Primer Component](https://primer.style/components/)
+- Artsy's [Reaction](https://github.com/artsy/reaction) and [Palette](https://github.com/artsy/palette)
+- [Rebass](http://rebassjs.org)
