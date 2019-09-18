@@ -12,7 +12,7 @@ The design system and building blocks of every Cogito product. 🎲
 
 ## Why?
 
-There are a **lot of** great React UI component libraries, such as [Material UI](https://material-ui.com), [Ant Design](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwie5e6f-trkAhUkxMQBHTjOD_EQFjAAegQIBxAC&url=https%3A%2F%2Fant.design%2Fdocs%2Freact%2Fintroduce&usg=AOvVaw29Ajs22mg1xqwr3Sl0aYod), [Semantic UI](https://react.semantic-ui.com/), [Grommet](https://v2.grommet.io/) and the list goes on. Although we could find a proper one which fits our custom design system without making any compromise.
+There are a **lot of** great React UI component libraries, such as [Material UI](https://material-ui.com), [Ant Design](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwie5e6f-trkAhUkxMQBHTjOD_EQFjAAegQIBxAC&url=https%3A%2F%2Fant.design%2Fdocs%2Freact%2Fintroduce&usg=AOvVaw29Ajs22mg1xqwr3Sl0aYod), [Semantic UI](https://react.semantic-ui.com/), [Grommet](https://v2.grommet.io/) and the list goes on. Although we couldn't find a proper one which fits our custom needs without making any compromise.
 
 On the other hand based on our early experiences we struggled a lot with component development within our application, so we wanted to create an isolated environment where we can iterate fast on component building, styling and visual testing. With the success of popular component documentation and development tools ([Storybook](http://storybook.js.org), [Docz](http://docz.site), [Styleguidist](https://react-styleguidist.js.org/)) we found our solution.
 
@@ -20,7 +20,7 @@ On the other hand based on our early experiences we struggled a lot with compone
 
 Starting from scratch is always a hard decision, but our goal is to create and maintain a single source of truth of our design system and our [web app](https://app.cogito.study) component library. We don't want to create another popular open source UIKit. Since we only depend on open source projects so it was a no brainer to make our library open as well.
 
-> ⚠️ It's still a heavily working progress library and only fits our custom needs.
+> ⚠️ It's still a heavily work in progress library and only fits our custom needs.
 
 ## Built With
 
