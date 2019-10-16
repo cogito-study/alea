@@ -1,6 +1,9 @@
-# alea
+# alea [deprecated]
 
 ![https://img.shields.io/npm/v/@cogito-study/alea](https://img.shields.io/npm/v/@cogito-study/alea) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier) ![https://img.shields.io/github/license/mashape/apistatus.svg](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+## Deprecation Notice
+> After a huge discussion in the team we decided to use [Chakra UI](https://chakra-ui.com) which is built on the same foundamentals as Alea, but it has a lot of easily customizable components.
 
 ## What?
 
