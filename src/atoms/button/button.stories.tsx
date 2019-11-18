@@ -22,7 +22,6 @@ export const tertiary = () => (
 
 export const disabled = () => (
   <Fragment>
-    {/** TODO: Box it! */}
     <Button onClick={action('clicked')} disabled>
       {text('Primary button content', 'primary')}
     </Button>
@@ -33,4 +32,12 @@ export const disabled = () => (
       {text('Tertiary button content', 'tertiary')}
     </Button>
   </Fragment>
+);
+
+export const loading = () => <Button loading />;
+
+export const withIcon = () => (
+  <Button icon="email" iconColor="primary.8">
+    {text('Content', 'Send')}
+  </Button>
 );

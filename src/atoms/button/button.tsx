@@ -11,9 +11,11 @@ import {
   typography,
   TypographyProps,
 } from 'styled-system';
-
 import { Theme, theme } from '../../theme';
 import { StyleFunction } from '../../utils/types';
+import { Flex } from '../flex/flex';
+import { Icon, IconOptions } from '../icon/icon';
+import { Paragraph } from '../paragraph/paragraph';
 
 const defaultStyle = ({
   theme: {
@@ -130,6 +132,9 @@ type ButtonVariant = 'primary' | 'secondary' | 'tertiary';
 
 interface Props {
   variant: ButtonVariant;
+  loading: boolean;
+  icon: IconOptions;
+  iconColor: string;
 }
 
 export type ButtonProps = Props &
@@ -155,8 +160,31 @@ const StyledButton = styled.button<ButtonProps>`
 `;
 
 // ts-ignore to fix type inconsistency because of color
-// @ts-ignore
-export const Button = (props: ButtonProps) => <StyledButton {...props} />;
+export const Button = (props: ButtonProps) =>
+  props.icon ? (
+    // @ts-ignore
+    <StyledButton {...props} py={1}>
+      <Flex alignItems="center">
+        <Icon option={props.icon} color={props.iconColor} width="25px" />
+        <Flex flexGrow={1} justifyContent="center">
+          <Paragraph fontWeight="bold" lineHeight="0" pl={2} pr={1}>
+            {props.children}
+          </Paragraph>
+        </Flex>
+      </Flex>
+    </StyledButton>
+  ) : props.loading ? (
+    // @ts-ignore
+    <StyledButton {...props} disabled>
+      <Flex alignItems="center" justifyContent="space-between">
+        <Icon option="loading" width="20px" color="white" />
+        Loading
+      </Flex>
+    </StyledButton>
+  ) : (
+    // @ts-ignore
+    <StyledButton {...props} />
+  );
 
 Button.defaultProps = {
   theme,
@@ -168,4 +196,7 @@ Button.defaultProps = {
   height: '40px',
   px: 3,
   py: 2,
+  loading: false,
+  icon: '',
+  iconColor: 'primary.8',
 };

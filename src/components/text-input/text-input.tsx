@@ -56,7 +56,7 @@ const StyledInputContainer = styled(Flex)<StyledInputContainerProps>`
   }
 
   & > input:disabled ~ div > svg {
-    fill: ${({ theme: { colors } }: StyledInputContainerProps) => colors.neutral[5]};
+    fill: ${({ theme: { colors } }: StyledInputContainerProps) => colors.neutral[2]};
   }
 `;
 
